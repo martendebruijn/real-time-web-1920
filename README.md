@@ -2,7 +2,10 @@
 
 ## Introductie
 
-Zie de [wiki](https://github.com/martendebruijn/real-time-web-1920/wiki) voor een uitgebreidere uitleg.
+Simple chatbot met een unieke feature.\
+Feature: Hoe vaker een letter genoemd wordt, des te groter deze letter wordt weergegeven.
+
+<!-- Zie de [wiki](https://github.com/martendebruijn/real-time-web-1920/wiki) voor een uitgebreidere uitleg. -->
 
 ## Live Demo
 
