@@ -4,6 +4,7 @@ const fs = require('fs');
 
 module.exports = {
   prepareMsg,
+  readSavedCharacters,
 };
 
 function unique(value, index, self) {
