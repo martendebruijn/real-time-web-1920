@@ -7,8 +7,13 @@ const ready = callback => {
   else document.addEventListener('DOMContentLoaded', callback);
 };
 
+function addSpanSize(span, count) {
+  return span.classList.add(`size-${count}`);
+}
+
 function includeMessage() {
   socket.on('chat message', function(msg) {
+    updateCharacters();
     const output = document.getElementById('messages');
     const li = document.createElement('li');
     output.append(li);
@@ -16,16 +21,22 @@ function includeMessage() {
     characters.forEach(function(letter) {
       const span = document.createElement('span');
       span.innerText = letter;
-      span.classList.add('default');
+      const count = charactersList[letter];
+      if (!count) {
+        addSpanSize(span, 0);
+      } else if (count >= 15) {
+        addSpanSize(span, 15);
+      } else {
+        addSpanSize(span, count);
+      }
       li.append(span);
     });
-    updateCharacters();
   });
 }
 
 function updateCharactersList(characters) {
   charactersList = characters;
-  console.log(charactersList);
+  console.log(charactersList); // this console.log fires * the amount of said messages, and I don't really know why
 }
 
 function getInitialCharacters() {
