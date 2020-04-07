@@ -40,3 +40,8 @@ form button {
 #messages li:nth-child(odd) {
   background: #eee;
 }
+#clear {
+  position: fixed;
+  right: 8px;
+  top: 8px;
+}

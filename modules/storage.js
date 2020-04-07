@@ -3,8 +3,9 @@
 const fs = require('fs');
 
 module.exports = {
-  prepareMsg,
+  saveMsg,
   readSavedCharacters,
+  writeSavedCharacters,
 };
 
 function unique(value, index, self) {
@@ -27,7 +28,7 @@ function writeSavedCharacters(data) {
   fs.writeFileSync('./data/characters.json', stringedData);
 }
 
-function prepareMsg(msg) {
+function saveMsg(msg) {
   let messageCharacterCount = {};
   const removeSpaces = msg.replace(/ /g, '');
   const characters = removeSpaces.split('');

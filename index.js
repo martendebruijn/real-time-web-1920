@@ -27,11 +27,14 @@ const io = require('socket.io').listen(server);
 io.on('connection', function(socket) {
   console.log('a user connected');
   socket.emit('initial characters', storage.readSavedCharacters());
+
   socket.on('chat message', function(msg) {
-    storage.prepareMsg(msg);
-    // io.sockets.emit('update characters', function() {
-    //     // return
-    // })
+    storage.saveMsg(msg);
+    io.emit('update characters', storage.readSavedCharacters());
     io.emit('chat message', msg);
+  });
+
+  socket.on('clear', function(data) {
+    storage.writeSavedCharacters(data);
   });
 });

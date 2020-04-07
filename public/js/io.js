@@ -19,13 +19,30 @@ function includeMessage() {
       span.classList.add('default');
       li.append(span);
     });
+    updateCharacters();
   });
 }
 
+function updateCharactersList(characters) {
+  charactersList = characters;
+  console.log(charactersList);
+}
+
 function getInitialCharacters() {
-  socket.on('initial characters', function(characters) {
-    charactersList = characters;
-    console.log(charactersList);
+  console.log('get initial characters');
+  socket.on('initial characters', updateCharactersList);
+}
+
+function updateCharacters() {
+  console.log('update characters');
+  socket.on('update characters', updateCharactersList);
+}
+
+function clearData() {
+  const el = document.getElementById('clear');
+  el.addEventListener('click', function() {
+    socket.emit('clear', {});
+    console.log('Character data is being cleared.');
   });
 }
 
@@ -47,3 +64,4 @@ ready(() => {
   sendMessage();
   includeMessage();
 });
+clearData();
