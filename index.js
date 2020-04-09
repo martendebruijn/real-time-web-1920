@@ -24,17 +24,30 @@ const server = app.listen(port, () =>
 );
 const io = require('socket.io').listen(server);
 
-io.on('connection', function(socket) {
+io.on('connection', function (socket) {
   console.log('a user connected');
+  socket.broadcast.emit('newUser', socket.id);
+  console.log(socket.id);
+  socket.on('set user', function (username) {
+    console.log(`user with id ${username} connected`);
+  });
   socket.emit('initial characters', storage.readSavedCharacters());
 
-  socket.on('chat message', function(msg) {
+  socket.on('chat message', function (msg) {
     storage.saveMsg(msg);
     socket.emit('update characters', storage.readSavedCharacters());
     io.emit('chat message', msg);
   });
 
-  socket.on('clear', function(data) {
+  socket.on('clear', function (data) {
     storage.writeSavedCharacters(data);
+  });
+
+  socket.on('userLeft', function (username) {
+    console.log(`user with id ${username} disconnected`);
+  });
+
+  socket.on('disconnect', function () {
+    console.log('a user disconnected');
   });
 });

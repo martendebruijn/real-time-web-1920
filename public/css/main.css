@@ -10,7 +10,14 @@
 body {
   font: 13px Helvetica, Arial;
 }
-form {
+form.username {
+  top: 40px;
+  width: 100%;
+  background: #000;
+  padding: 3px;
+  position: fixed;
+}
+form.message {
   background: #000;
   padding: 3px;
   position: fixed;
