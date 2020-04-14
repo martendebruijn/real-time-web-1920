@@ -24,11 +24,26 @@ npm start
 ## Table of Contents
 
 - [API](#Api)
+  - [Twitter API](#Twitter-api)
+  - [Covid-19 API](#covid-19-api)
 - [Whishlist](#Whishlist)
 - [Credits](#Credits)
 - [Sources](#Sources)
 
 ## API
+
+### Twitter API
+
+De web app maakt gebruik van de Twitter API. Om gebruik te kunnen maken van de API van Twitter moet men een bij Twitter goedgekeurd [developer account](https://developer.twitter.com/en/docs/basics/apps/overview) hebben. Wanneer deze is goed gekeurd kan men authentication keys aanvragen. **Momenteel ben ik aan het wachten totdat mijn app goedgekeurd wordt of niet.**
+
+Add:
+
+- [ ] Authentication
+- [ ] Rate limits
+
+### Covid-19 API
+
+Voor het weergeven van de Covid-19 statistieken maak ik gebruik van [deze API](https://covid19api.com/).
 
 ## Whishlist
 
@@ -42,3 +57,4 @@ npm start
 📖 Artikel / Documentation | ⚙️ Code | 📹 Video | 🛠 Tools
 
 - 📖[Socket IO - Getting Started](https://socket.io/get-started/chat/)
+- 📖[Covid-19 API Documentation](https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest)
