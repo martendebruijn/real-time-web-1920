@@ -23,9 +23,12 @@ npm start
 
 ## Table of Contents
 
+- [API](#Api)
 - [Whishlist](#Whishlist)
 - [Credits](#Credits)
 - [Sources](#Sources)
+
+## API
 
 ## Whishlist
 
