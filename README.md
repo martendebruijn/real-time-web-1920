@@ -43,7 +43,7 @@ Add:
 
 ### Covid-19 API
 
-Voor het weergeven van de Covid-19 statistieken maak ik gebruik van [deze API](https://covid19api.com/).
+Voor het weergeven van de Covid-19 statistieken maak ik gebruik van [deze API](https://covid19api.com/). Deze API maakt geen gebruik van API keys en heeft geen rate limits.
 
 ## Whishlist
 

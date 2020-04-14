@@ -1,0 +1,26 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+}
+header,
+footer {
+  height: 1em;
+  background: black;
+  color: white;
+}
+main {
+  height: calc(100% - 2em);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1em;
+  row-gap: 1em;
+  color: black;
+}
+svg {
+  width: 100%;
+}
+svg path:hover {
+  fill: lightblue;
+}

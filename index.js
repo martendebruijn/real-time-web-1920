@@ -11,6 +11,9 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+// for parsing application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
+
 // import modules
 const render = require('./modules/routeHandler.js');
 
