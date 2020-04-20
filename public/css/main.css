@@ -18,9 +18,3 @@ main {
   row-gap: 1em;
   color: black;
 }
-svg {
-  width: 100%;
-}
-svg path:hover {
-  fill: lightblue;
-}

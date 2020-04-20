@@ -4,7 +4,13 @@
 
 ## Introductie
 
-Momenteel leven we in een anderhalve meter samenleving vanwege COVID-19. Iedereen lijkt hier ook een mening over te hebben. Met mijn real time web application wil ik tweets over COVID-19 recht tegenover de statistieken van het virus (aantal besmettingen, doden, etc.) zetten per land. Hebben inwoners van een land waar COVID-19 minder speelt een andere mening dan inwoners van een land waar COVID-19 momenteel hoofdzaak is?
+Stukje introductie tekst over de course etc.
+
+## Concept
+
+Mijn concept is een spel die gebruik maakt van real time voetbal wedstrijd standen. Gebruikers kunnen tegen elkaar spelen. Ze kunnen aanklikken welk team het eerstvolgende doelpunt gaat maken. Als de gebruiker het goed heeft verdiend hij of zij een punt. Hiermee kan men live interactief gokken op wedstrijden.
+\
+Omdat de meeste competities momenteel stil liggen vanwege Covid-19, focus ik mij op de competities van landen als Belarus, die nog wel spelen.
 
 <!-- Zie de [wiki](https://github.com/martendebruijn/real-time-web-1920/wiki) voor een uitgebreidere uitleg. -->
 
@@ -24,26 +30,14 @@ npm start
 ## Table of Contents
 
 - [API](#Api)
-  - [Twitter API](#Twitter-api)
-  - [Covid-19 API](#covid-19-api)
+- [Diagram](#diagram)
 - [Whishlist](#Whishlist)
 - [Credits](#Credits)
 - [Sources](#Sources)
 
 ## API
 
-### Twitter API
-
-De web app maakt gebruik van de Twitter API. Om gebruik te kunnen maken van de API van Twitter moet men een bij Twitter goedgekeurd [developer account](https://developer.twitter.com/en/docs/basics/apps/overview) hebben. Wanneer deze is goed gekeurd kan men authentication keys aanvragen. **Momenteel ben ik aan het wachten totdat mijn app goedgekeurd wordt of niet.**
-
-Add:
-
-- [ ] Authentication
-- [ ] Rate limits
-
-### Covid-19 API
-
-Voor het weergeven van de Covid-19 statistieken maak ik gebruik van [deze API](https://covid19api.com/). Deze API maakt geen gebruik van API keys en heeft geen rate limits.
+## Diagram
 
 ## Whishlist
 
@@ -57,4 +51,3 @@ Voor het weergeven van de Covid-19 statistieken maak ik gebruik van [deze API](h
 📖 Artikel / Documentation | ⚙️ Code | 📹 Video | 🛠 Tools
 
 - 📖[Socket IO - Getting Started](https://socket.io/get-started/chat/)
-- 📖[Covid-19 API Documentation](https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest)
