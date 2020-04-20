@@ -12,6 +12,9 @@ Mijn concept is een spel die gebruik maakt van real time voetbal wedstrijd stand
 \
 Omdat de meeste competities momenteel stil liggen vanwege Covid-19, focus ik mij op de competities van landen als Belarus, die nog wel spelen.
 
+- [ ] Concept tekst beter omschrijven
+- [ ] Wireframes maken
+
 <!-- Zie de [wiki](https://github.com/martendebruijn/real-time-web-1920/wiki) voor een uitgebreidere uitleg. -->
 
 ## Live Demo
@@ -37,7 +40,11 @@ npm start
 
 ## API
 
+- [ ] API omschrijving toevoegen
+
 ## Diagram
+
+- [ ] Diagram toevoegen
 
 ## Whishlist
 
