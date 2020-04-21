@@ -33,7 +33,7 @@ npm start
 ## Table of Contents
 
 - [API](#Api)
-- [Diagram](#diagram)
+- [Data Life Cycle Diagram](#data-life-cycle-diagram)
 - [Whishlist](#Whishlist)
 - [Credits](#Credits)
 - [Sources](#Sources)
@@ -42,9 +42,9 @@ npm start
 
 - [ ] API omschrijving toevoegen
 
-## Diagram
+## Data Life Cycle Diagram
 
-- [ ] Diagram toevoegen
+![Data Life Cycle Diagram](./img/data-life-cycle.jpg)
 
 ## Whishlist
 
