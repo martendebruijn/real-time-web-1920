@@ -1,3 +1,21 @@
 <%- include('./partials/head.ejs') %>
-<p>hier komt de main</p>
+<div class="leaderboard">
+    <p>Leaderboard</p>
+</div>
+<div class="city-box city-left">
+    <div class="flag">
+    <img src="./img/<%= imgOne %>" alt="Vlag van Nederland">
+</div>
+    <h2><%= cityOne %></h2>
+</div>
+<div class="vs-circle"><p>VS</p></div>
+<div class="city-box city-right">
+    <div class="flag">
+    <img src="./img/<%= imgTwo %>" alt="Vlag van Japan">
+</div>
+    <h2><%= cityTwo %></h2>
+</div>
+<div class="chat">
+    <p>Chat</p>
+</div>
 <%- include('./partials/footer.ejs') %>

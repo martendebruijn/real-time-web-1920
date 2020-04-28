@@ -1,24 +1,17 @@
 // imports
 const fetch = require('node-fetch');
-const util = require('util');
+// const util = require('util');
+const dotenv = require('dotenv').config();
+
+const key = process.env.KEY;
 
 // exports
-module.exports = { getLiveDataByCountry, getCountries };
-//  https://live-score-api.com/prices
+module.exports = { getWeather };
 
-// covid-19 api
-const covidBaseURL = 'https://api.covid19api.com/';
-
-const requestOptions = {
-  method: 'GET',
-  redirect: 'follow',
-};
-
-async function getCountries() {
-  const extendedURL = `countries`;
-  const url = covidBaseURL + extendedURL;
-  const response = await fetch(url, requestOptions);
+async function getWeather(city) {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`;
+  const response = await fetch(url);
   const jsonData = await response.json();
-  console.log(util.inspect(jsonData, { maxArrayLength: null }));
+  console.log(jsonData);
   return jsonData;
 }

@@ -1,11 +1,16 @@
 const api = require('./api.js');
+const cities = require('./cities.js');
 
 async function home(req, res) {
-  // const countryData = await api.getLiveDataByCountry('netherlands');
-  // const countryData = await api.getCountries();
+  // await api.getWeather('Amsterdam');
+  const cityOne = cities.getRandomCity();
+  const cityTwo = cities.getRandomCity();
   res.render('home', {
     title: 'home',
-    // countryData,
+    cityOne: cityOne.city,
+    cityTwo: cityTwo.city,
+    imgOne: cityOne.img,
+    imgTwo: cityTwo.img,
   });
 }
 
