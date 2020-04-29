@@ -22,10 +22,31 @@ app.get('/', render.home);
 const server = app.listen(port, () =>
   console.log(`App listening on port ${port}`)
 );
+
+// socket.io instantiation
 const io = require('socket.io').listen(server);
 
+// listen on every connection
 io.on('connection', function (socket) {
   console.log('a user connected');
+
+  // default username
+  socket.username = 'Anonymous';
+
+  // listen on change username
+  socket.on('change username', (data) => {
+    socket.username = data.username;
+  });
+
+  // listen on chat message
+  socket.on('chat message', (data) => {
+    // broadcast new message
+    io.sockets.emit('chat message', {
+      message: data.message,
+      username: socket.username,
+    });
+  });
+
   socket.on('disconnect', function () {
     console.log('a user disconnected');
   });

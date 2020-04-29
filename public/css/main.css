@@ -27,7 +27,7 @@ footer {
 main {
   height: calc(100% - (6em + 16px));
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-columns: 1.5fr 2fr 2fr 1.5fr;
   grid-template-rows: 1fr;
   color: black;
 }
@@ -89,4 +89,40 @@ h2 {
 .city-box:hover {
   cursor: pointer;
   background: #cecece;
+}
+form {
+  background: #000;
+  padding: 3px;
+  position: fixed;
+  width: 100%;
+}
+#changeUsername {
+  top: calc(3em + 8px);
+}
+#sendMessage {
+  bottom: calc(3em + 8px);
+}
+form input {
+  border: 0;
+  padding: 10px;
+  margin-right: 0.5%;
+}
+form button {
+  width: 9%;
+  background: rgb(130, 224, 255);
+  border: none;
+  padding: 10px;
+}
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 3em;
+}
+#messages p {
+  padding: 5px 10px;
+}
+#messages p:nth-child(odd) {
+  background: var(--accent-color);
+  color: white;
 }

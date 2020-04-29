@@ -16,6 +16,13 @@
     <h2><%= cityTwo %></h2>
 </div>
 <div class="chat">
-    <p>Chat</p>
+    <form id="changeUsername" action="">
+        <input id="u" autocomplete="off" /><button>Change username</button>
+      </form>
+    <ul id="messages">
+    </ul>
+    <form id="sendMessage" action="">
+        <input id="m" autocomplete="off" /><button>Send</button>
+      </form>
 </div>
 <%- include('./partials/footer.ejs') %>
