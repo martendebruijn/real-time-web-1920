@@ -19,6 +19,7 @@ const render = require('./modules/routeHandler.js');
 
 // routes
 app.get('/', render.home);
+app.get('/game', render.game);
 
 const server = app.listen(port, () =>
   console.log(`App listening on port ${port}`)

@@ -45,9 +45,13 @@ form input {
   padding: 10px;
   margin-right: 0.5%;
 }
-form button {
+form button,
+#play {
   width: 9%;
   background: rgb(130, 224, 255);
   border: none;
   padding: 10px;
+}
+#play {
+  float: right;
 }

@@ -1,6 +1,11 @@
 const api = require('./api.js');
 const cities = require('./cities.js');
 
+module.exports = {
+  home,
+  game,
+};
+
 // async function home(req, res) {
 //   // await api.getWeather('Amsterdam');
 //   const cityOne = cities.getRandomCity();
@@ -14,13 +19,20 @@ const cities = require('./cities.js');
 //   });
 // }
 function home(req, res) {
-  // await api.getWeather('Amsterdam');
   res.render('chooseUsername', {
     title: 'home',
-    style: './css/chooseUsername.css',
+    style: 'chooseUsername',
+    script: 'chooseUsername',
   });
 }
-
-module.exports = {
-  home,
-};
+function game(req, res) {
+  res.render('game', {
+    title: 'game',
+    style: 'game',
+    script: 'game',
+    cityOne: 'Stad 1',
+    cityTwo: 'Stad 2',
+    imgOne: 'Amsterdam.svg',
+    imgTwo: 'Amsterdam.svg',
+  });
+}
