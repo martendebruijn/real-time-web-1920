@@ -1,11 +1,12 @@
 const api = require('./api.js');
-const cities = require('./cities.js');
+const questions = require('./questions.js');
 
 module.exports = {
   home,
   game,
 };
 function home(req, res) {
+  questions.readFromJson();
   res.render('chooseUsername', {
     title: 'home',
     style: 'chooseUsername',

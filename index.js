@@ -16,11 +16,16 @@ app.use(express.urlencoded({ extended: true }));
 
 // import modules
 const render = require('./modules/routeHandler.js');
-const cities = require('./modules/cities.js');
+const questions = require('./modules/questions.js');
 
 // routes
 app.get('/', render.home);
 app.get('/game', render.game);
+
+// app.get('/testing', (req, res) => {
+//   console.log('JOEHOE');
+
+// });
 
 const server = app.listen(port, () =>
   console.log(`App listening on port ${port}`)

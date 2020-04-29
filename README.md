@@ -42,6 +42,7 @@ npm start
 ## API
 
 - [ ] API omschrijving toevoegen
+      [wheater api](https://openweathermap.org/current)
 
 ## Data Life Cycle Diagram
 
@@ -71,10 +72,12 @@ npm start
 - Changed the capital city of Kazakhstan from `Astana` to `Nur-Sultan` since [it's renamed in 2019](https://simple.wikipedia.org/wiki/Nur-Sultan).
 - Changed the capital city of Myanmar from `Rangoon` to `Naypyidaw` since it's [the new capital of Myanmar](https://simple.wikipedia.org/wiki/Naypyidaw).
 - Removed `Yugoslavia` since it is [a former country](https://en.wikipedia.org/wiki/Yugoslavia).
-- Added img links.
+- Added img links. **Haven't done this one yet** -> add a placeholder img for when the img url is broken
 
 ## Sources
 
 📖 Artikel / Documentation | ⚙️ Code | 📹 Video | 🛠 Tools
 
 - 📖[Socket IO - Getting Started](https://socket.io/get-started/chat/)
+- 📖[Build a Simple Chat App With NodeJS and SocketIO - Medium - Noufel Gouirhate](https://medium.com/@noufel.gouirhate/build-a-simple-chat-app-with-node-js-and-socket-io-ea716c093088)
+- 📖[List of Countries by Continents](https://simple.wikipedia.org/wiki/List_of_countries_by_continents)
