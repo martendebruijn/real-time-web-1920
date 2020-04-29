@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // import modules
 const render = require('./modules/routeHandler.js');
+const cities = require('./modules/cities.js');
 
 // routes
 app.get('/', render.home);
@@ -36,12 +37,18 @@ io.on('connection', function (socket) {
 
   // broadcast amount of players
   broadcastPlayerAmount();
+
   // default username
-  socket.username = 'Anonymous';
+  // socket.username = 'Anonymous';
 
   // listen on change username
   socket.on('change username', (data) => {
     socket.username = data.username;
+  });
+
+  socket.on('game start', function () {
+    const destination = '/game';
+    io.sockets.emit('game start', destination);
   });
 
   // listen on chat message
@@ -52,6 +59,16 @@ io.on('connection', function (socket) {
       username: socket.username,
     });
   });
+
+  // listen on give answer
+  socket.on('give answer', function (data) {
+    console.log(data);
+  });
+
+  // const tempOne = await api.getWeather(cityOne.city);
+  // const tempTwo = await api.getWeather(cityTwo.city);
+  // const tempOne = 11.57;
+  // const tempTwo = 13.35;
 
   socket.on('disconnect', function () {
     console.log('a user disconnected');

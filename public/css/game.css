@@ -26,19 +26,26 @@ main {
 .city-right {
   border-left: 2px solid var(--accent-color);
 }
-.vs-circle {
+.vs-circle,
+#countdown {
   height: 3em;
   width: 3em;
   background: var(--accent-color);
   border-radius: 50%;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-1.5em, -1.5em);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  left: 50%;
+}
+.vs-circle {
+  top: 50%;
+  transform: translate(-1.5em, -1.5em);
+}
+#countdown {
+  top: 10%;
+  transform: translateX(-1.5em);
 }
 .leaderboard {
   border-right: 4px solid var(--accent-color);
@@ -75,4 +82,8 @@ form {
 }
 #messages p:first-of-type {
   padding-top: 3em;
+}
+.city-left.active,
+.city-right.active {
+  background: lightskyblue;
 }

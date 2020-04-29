@@ -36,6 +36,7 @@ npm start
 - [Data Life Cycle Diagram](#data-life-cycle-diagram)
 - [Whishlist](#Whishlist)
 - [Credits](#Credits)
+  - [Dataset Used](#Dataset-Used)
 - [Sources](#Sources)
 
 ## API
@@ -52,6 +53,25 @@ npm start
 
 - [Meyerweb: CSS Reset](http://meyerweb.com/eric/tools/css/reset/)
 - [Tobiashlin: Document ready from jquery to vanilla JS](https://tobiasahlin.com/blog/move-from-jquery-to-vanilla-javascript/#document-ready)
+
+### Dataset Used
+
+[Country-capital dataset made by Samayo](https://data.world/samayo/country-capital-city) \
+**Changes made:**
+
+- Removed the countries that don't have capitals.
+- Added continents.
+- Changed the capital city name of Austria from the native name to the English name -> `Wien` -> `Vienna`.
+- Changed the capital city of Bolivia from `La Plata` to `Sucre` since [it isn't known as La Plata anymore](https://en.wikipedia.org/wiki/Sucre).
+- Changed the capital city of Brazil to `Brasília`.
+- Changed the capital city of Burundi from `Bujumbra` to `Gitega` since [it is Gitega as of March 2007](https://simple.wikipedia.org/wiki/Gitega).
+- Changed the capital city of China from `Peking` to `Beijing` since the city changed it name to Beijing.
+- Changed the capital city of Colombia from `Santaf` to `Bogotá`.
+- Added `é` to capitals that have it in their name, because they weren't there.
+- Changed the capital city of Kazakhstan from `Astana` to `Nur-Sultan` since [it's renamed in 2019](https://simple.wikipedia.org/wiki/Nur-Sultan).
+- Changed the capital city of Myanmar from `Rangoon` to `Naypyidaw` since it's [the new capital of Myanmar](https://simple.wikipedia.org/wiki/Naypyidaw).
+- Removed `Yugoslavia` since it is [a former country](https://en.wikipedia.org/wiki/Yugoslavia).
+- Added img links.
 
 ## Sources
 
