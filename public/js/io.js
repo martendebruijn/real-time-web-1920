@@ -2,8 +2,9 @@ const socket = io();
 const messages = document.getElementById('messages');
 const usernameForm = document.getElementById('changeUsername');
 const usernameInput = document.getElementById('u');
-const messageForm = document.getElementById('sendMessage');
-const messageInput = document.getElementById('m');
+const playerCount = document.getElementById('playerCount');
+// const messageForm = document.getElementById('sendMessage');
+// const messageInput = document.getElementById('m');
 /* jquery document ready function to vanilla JS 
  Source: https://tobiasahlin.com/blog/move-from-jquery-to-vanilla-javascript/#document-ready */
 const ready = (callback) => {
@@ -12,7 +13,7 @@ const ready = (callback) => {
 };
 
 ready(() => {
-  socket.on('connection', function () {
+  socket.on('connect', function () {
     console.log('connection to server made');
   });
 });
@@ -26,19 +27,21 @@ ready(() => {
 // });
 
 // emit message
-messageForm.addEventListener('submit', function (e) {
-  e.preventDefault();
-  socket.emit('chat message', { message: messageInput.value });
-  messageInput.value = '';
-  return false;
-});
+// messageForm.addEventListener('submit', function (e) {
+//   e.preventDefault();
+//   socket.emit('chat message', { message: messageInput.value });
+//   messageInput.value = '';
+//   return false;
+// });
 
-// listen on new message
-socket.on('chat message', (data) => {
-  console.log(data);
-  const msgEl = document.createElement('p');
-  msgEl.innerText = `${data.username}: ${data.message}`;
-  messages.append(msgEl);
+// // listen on new message
+// socket.on('chat message', (data) => {
+//   const msgEl = document.createElement('p');
+//   msgEl.innerText = `${data.username}: ${data.message}`;
+//   messages.append(msgEl);
+// });
+socket.on('aantal spelers', (data) => {
+  playerCount.innerText = `${data.spelers} spelers`;
 });
 
 // emit username

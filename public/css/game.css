@@ -1,47 +1,7 @@
-:root {
-  --theme-color: #08d9d6;
-  --accent-color: #252a34;
-  --bright-color: #ff2e63;
-  --soft-color: #eaeaea;
-}
-body {
-  font-family: 'Roboto', sans-serif;
-  height: 100vh;
-  background: var(--soft-color);
-}
-header,
-footer {
-  height: 3em;
-  background: var(--accent-color);
-  color: white;
-  display: flex;
-  align-items: center;
-  padding: 4px;
-}
-header {
-  justify-content: center;
-}
-footer {
-  justify-content: flex-end;
-}
 main {
-  height: calc(100% - (6em + 16px));
   display: grid;
   grid-template-columns: 1.5fr 2fr 2fr 1.5fr;
   grid-template-rows: 1fr;
-  color: black;
-}
-h1 {
-  font-size: 1em;
-  text-transform: uppercase;
-  font-weight: 500;
-  letter-spacing: 2.5px;
-}
-h2 {
-  font-weight: 500;
-  text-transform: uppercase;
-  font-size: 1em;
-  letter-spacing: 1.5px;
 }
 .flag {
   height: 180px;
@@ -85,6 +45,7 @@ h2 {
 }
 .chat {
   border-left: 4px solid var(--accent-color);
+  overflow: scroll;
 }
 .city-box:hover {
   cursor: pointer;
@@ -96,28 +57,14 @@ form {
   position: fixed;
   width: 100%;
 }
-#changeUsername {
-  top: calc(3em + 8px);
-}
 #sendMessage {
   bottom: calc(3em + 8px);
-}
-form input {
-  border: 0;
-  padding: 10px;
-  margin-right: 0.5%;
-}
-form button {
-  width: 9%;
-  background: rgb(130, 224, 255);
-  border: none;
-  padding: 10px;
 }
 #messages {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  padding-top: 3em;
+  width: 100%;
 }
 #messages p {
   padding: 5px 10px;
@@ -125,4 +72,7 @@ form button {
 #messages p:nth-child(odd) {
   background: var(--accent-color);
   color: white;
+}
+#messages p:first-of-type {
+  padding-top: 3em;
 }

@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const port = process.env.PORT || 3000;
 const app = express();
+let amountOfPlayers = 0;
 
 // static assets folder
 app.use(express.static('public'));
@@ -29,7 +30,11 @@ const io = require('socket.io').listen(server);
 // listen on every connection
 io.on('connection', function (socket) {
   console.log('a user connected');
+  amountOfPlayers++;
+  console.log('spelers:' + amountOfPlayers);
 
+  // broadcast amount of players
+  broadcastPlayerAmount();
   // default username
   socket.username = 'Anonymous';
 
@@ -49,5 +54,15 @@ io.on('connection', function (socket) {
 
   socket.on('disconnect', function () {
     console.log('a user disconnected');
+    amountOfPlayers--;
+    console.log('spelers:' + amountOfPlayers);
+    // broadcast amount of players
+    broadcastPlayerAmount();
   });
 });
+
+function broadcastPlayerAmount() {
+  io.sockets.emit('aantal spelers', {
+    spelers: amountOfPlayers,
+  });
+}
