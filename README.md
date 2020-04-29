@@ -6,6 +6,23 @@
 
 Stukje introductie tekst over de course etc.
 
+## To do
+
+- [ ] Real Time Web
+  - [ ] Chat functie
+    - [x] Basis
+    - [ ] Als er overflow is → automatisch naar het laatste bericht scrollen (/focus)
+  - [ ] Server berichten
+  - [ ] Rooms
+  - [ ] Questions genereren
+  - [ ] Antwoorden controleren
+  - [ ] Score systeem
+  - [ ] README
+    - [ ] Concept aanpassen
+    - [ ] Data Life Cycle diagram aanpassen
+    - [ ] Api sectie aanpassen
+    - [ ] Custom events toevoegen
+
 ## Concept
 
 Mijn concept is een spel die gebruik maakt van real time voetbal wedstrijd standen. Gebruikers kunnen tegen elkaar spelen. Ze kunnen aanklikken welk team het eerstvolgende doelpunt gaat maken. Als de gebruiker het goed heeft verdiend hij of zij een punt. Hiermee kan men live interactief gokken op wedstrijden.
