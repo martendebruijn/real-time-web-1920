@@ -81,6 +81,11 @@ npm start
 
 ## Whishlist
 
+- Voeg toe dat de laatst opgehaalde temperatuur bij de dataset wordt toegevoegd voor als de app over het request limiet heen is.
+- Ervoor zorgen dat wanneer de api een stad niet kan vinden, de stad automatisch wordt toegevoegd aan een bugs file.
+- Ervoor zorgen dat als een stad niet gevonden wordt, er een api call wordt gedaan met het land i.p.v. de stad.
+- Ervoor zorgen dat als een land niet gevonden kan worden (verkeerd gespeld/too many request) een andere stad ervoor in de plaats komt.
+
 ## Credits
 
 - [Meyerweb: CSS Reset](http://meyerweb.com/eric/tools/css/reset/)
@@ -110,11 +115,11 @@ npm start
 
 📖 Artikel / Documentation | ⚙️ Code | 📹 Video | 🛠 Tools
 
-- 📖[Socket IO - Getting Started](https://socket.io/get-started/chat/)
-- 📖[Build a Simple Chat App With NodeJS and SocketIO - Medium - Noufel Gouirhate](https://medium.com/@noufel.gouirhate/build-a-simple-chat-app-with-node-js-and-socket-io-ea716c093088)
-- 📖[List of Countries by Continents](https://simple.wikipedia.org/wiki/List_of_countries_by_continents)
-- 📖[EJS Documentation](https://ejs.co/#docs)
-- 📖[Loading images that not exist - Medium - Rahul Nanwani](https://blog.imagekit.io/how-to-handle-loading-images-that-may-not-exist-on-your-website-92e6c3c6ea63)
+- 📖 [Socket IO - Getting Started](https://socket.io/get-started/chat/)
+- 📖 [Build a Simple Chat App With NodeJS and SocketIO - Medium - Noufel Gouirhate](https://medium.com/@noufel.gouirhate/build-a-simple-chat-app-with-node-js-and-socket-io-ea716c093088)
+- 📖 [List of Countries by Continents](https://simple.wikipedia.org/wiki/List_of_countries_by_continents)
+- 📖 [EJS Documentation](https://ejs.co/#docs)
+- 📖 [Loading images that not exist - Medium - Rahul Nanwani](https://blog.imagekit.io/how-to-handle-loading-images-that-may-not-exist-on-your-website-92e6c3c6ea63)
 
 ## To do list
 
@@ -129,9 +134,14 @@ npm start
   - [x] ~~Antwoorden controleren~~
   - [x] ~~Score systeem~~
   - [ ] Leaderboard updaten
+    - [ ] Scores updaten
     - [ ] Nicknames weergeven in leaderboard
     - [ ] Toevoeging geven als er dezelfde nicknames zijn
-  - [ ] Render nieuwe vraag en clear alle controle arrays/objecten
+  - [ ] GAME
+    - [ ] Nieuwe vraag renderen
+    - [ ] Add country
+    - [ ] Add current time
+    - [ ] Add possibility to filter on continent
   - [ ] Code opschonen
     - [ ] Code splitsen in functies
     - [ ] Code splitsen in modules
