@@ -14,9 +14,22 @@ Stukje introductie tekst over de course etc.
     - [ ] Als er overflow is → automatisch naar het laatste bericht scrollen (/focus)
   - [ ] Server berichten
   - [ ] Rooms
-  - [ ] Questions genereren
-  - [ ] Antwoorden controleren
-  - [ ] Score systeem
+    - [ ] Geneer uniek game-ID
+  - [x] Questions genereren
+  - [x] Antwoorden controleren
+  - [x] Score systeem
+  - [ ] Leaderboard updaten
+    - [ ] Nicknames weergeven in leaderboard
+    - [ ] Toevoeging geven als er dezelfde nicknames zijn
+  - [ ] Render nieuwe vraag en clear alle controle arrays/objecten
+  - [ ] Code opschonen
+    - [ ] Code splitsen in functies
+    - [ ] Code splitsen in modules
+  - [ ] Styling
+    - [ ] Leaderboard styling toevoegen
+    - [ ] Countdown animatie toevoegen
+    - [ ] Feedback correcte antwoord geven
+    - [ ] Responsive maken
   - [ ] README
     - [ ] Concept aanpassen
     - [ ] Data Life Cycle diagram aanpassen
