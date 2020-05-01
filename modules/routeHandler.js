@@ -6,7 +6,7 @@ module.exports = {
   game,
 };
 function home(req, res) {
-  questions.readFromJson();
+  // questions.readFromJson();
   res.render('chooseUsername', {
     title: 'home',
     style: 'chooseUsername',
