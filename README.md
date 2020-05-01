@@ -6,36 +6,6 @@
 
 Stukje introductie tekst over de course etc.
 
-## To do
-
-- [ ] Real Time Web
-  - [ ] Chat functie
-    - [x] ~~Basis~~
-    - [ ] Als er overflow is → automatisch naar het laatste bericht scrollen (/focus)
-  - [ ] Server berichten
-  - [ ] Rooms
-    - [ ] Geneer uniek game-ID
-  - [x] ~~Questions genereren~~
-  - [x] ~~Antwoorden controleren~~
-  - [x] ~~Score systeem~~
-  - [ ] Leaderboard updaten
-    - [ ] Nicknames weergeven in leaderboard
-    - [ ] Toevoeging geven als er dezelfde nicknames zijn
-  - [ ] Render nieuwe vraag en clear alle controle arrays/objecten
-  - [ ] Code opschonen
-    - [ ] Code splitsen in functies
-    - [ ] Code splitsen in modules
-  - [ ] Styling
-    - [ ] Leaderboard styling toevoegen
-    - [ ] Countdown animatie toevoegen
-    - [ ] Feedback correcte antwoord geven
-    - [ ] Responsive maken
-  - [ ] README
-    - [ ] Concept aanpassen
-    - [ ] Data Life Cycle diagram aanpassen
-    - [ ] Api sectie aanpassen
-    - [ ] Custom events toevoegen
-
 ## Concept
 
 Mijn concept is een spel die gebruik maakt van real time voetbal wedstrijd standen. Gebruikers kunnen tegen elkaar spelen. Ze kunnen aanklikken welk team het eerstvolgende doelpunt gaat maken. Als de gebruiker het goed heeft verdiend hij of zij een punt. Hiermee kan men live interactief gokken op wedstrijden.
@@ -63,11 +33,15 @@ npm start
 ## Table of Contents
 
 - [API](#Api)
+- [Tools Used](#Tools-used)
 - [Data Life Cycle Diagram](#data-life-cycle-diagram)
+- [NPM Scripts](#NPM-Scripts)
+- [Socket IO Events](#Socket-IO-Events)
 - [Whishlist](#Whishlist)
 - [Credits](#Credits)
   - [Dataset Used](#Dataset-Used)
 - [Sources](#Sources)
+- [Todo list](#Todo-list)
 
 ## API
 
@@ -141,3 +115,33 @@ npm start
 - 📖[List of Countries by Continents](https://simple.wikipedia.org/wiki/List_of_countries_by_continents)
 - 📖[EJS Documentation](https://ejs.co/#docs)
 - 📖[Loading images that not exist - Medium - Rahul Nanwani](https://blog.imagekit.io/how-to-handle-loading-images-that-may-not-exist-on-your-website-92e6c3c6ea63)
+
+## To do list
+
+- [ ] Real Time Web
+  - [ ] Chat functie
+    - [x] ~~Basis~~
+    - [ ] Als er overflow is → automatisch naar het laatste bericht scrollen (/focus)
+  - [ ] Server berichten
+  - [ ] Rooms
+    - [ ] Geneer uniek game-ID
+  - [x] ~~Questions genereren~~
+  - [x] ~~Antwoorden controleren~~
+  - [x] ~~Score systeem~~
+  - [ ] Leaderboard updaten
+    - [ ] Nicknames weergeven in leaderboard
+    - [ ] Toevoeging geven als er dezelfde nicknames zijn
+  - [ ] Render nieuwe vraag en clear alle controle arrays/objecten
+  - [ ] Code opschonen
+    - [ ] Code splitsen in functies
+    - [ ] Code splitsen in modules
+  - [ ] Styling
+    - [ ] Leaderboard styling toevoegen
+    - [ ] Countdown animatie toevoegen
+    - [ ] Feedback correcte antwoord geven
+    - [ ] Responsive maken
+  - [ ] README
+    - [ ] Concept aanpassen
+    - [ ] Data Life Cycle diagram aanpassen
+    - [ ] Api sectie aanpassen
+    - [ ] Custom events toevoegen
