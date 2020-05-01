@@ -10,14 +10,14 @@ Stukje introductie tekst over de course etc.
 
 - [ ] Real Time Web
   - [ ] Chat functie
-    - [x] Basis
+    - [x] ~~Basis~~
     - [ ] Als er overflow is → automatisch naar het laatste bericht scrollen (/focus)
   - [ ] Server berichten
   - [ ] Rooms
     - [ ] Geneer uniek game-ID
-  - [x] Questions genereren
-  - [x] Antwoorden controleren
-  - [x] Score systeem
+  - [x] ~~Questions genereren~~
+  - [x] ~~Antwoorden controleren~~
+  - [x] ~~Score systeem~~
   - [ ] Leaderboard updaten
     - [ ] Nicknames weergeven in leaderboard
     - [ ] Toevoeging geven als er dezelfde nicknames zijn
