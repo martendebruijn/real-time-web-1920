@@ -78,6 +78,32 @@ npm start
 
 ![Data Life Cycle Diagram](./img/data-life-cycle.jpg)
 
+## Tools used
+
+- nodejs
+- nodemon
+- ejs
+- expressjs
+- dotenv
+- heroku
+- node file system
+- socket io 2.0
+
+## NPM Scripts
+
+- dev
+
+## Events
+
+- Connection
+- Aantal spelers
+- Change username
+- Game start
+- Chat message
+- Give answer
+- Send temp
+- Disconnect
+
 ## Whishlist
 
 ## Credits
