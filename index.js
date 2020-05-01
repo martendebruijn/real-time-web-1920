@@ -3,10 +3,11 @@ const dotenv = require('dotenv').config();
 const port = process.env.PORT || 3000;
 const app = express();
 const fs = require('fs');
+let n = 1;
 let amountOfPlayers = 0; // kan ook met: io.engine.clientsCount
 var listClients;
-let n = 1;
 let usersAnswers = []; // todo: clear array when next question loads
+let addAmount = [];
 
 // static assets folder
 app.use(express.static('public'));
@@ -58,20 +59,6 @@ io.on('connection', function (socket) {
     io.sockets.emit('game start', destination);
     console.log('PLAYERS:');
     console.log(listClients);
-    // [{userID: abcd, score: 0}]
-    let gameScores = [];
-    listClients.forEach(function (item) {
-      const obj = {};
-      obj.userID = item;
-      obj.score = 0;
-      gameScores.push(obj);
-    });
-    const dataString = JSON.stringify(gameScores);
-    // sla players op in json bestand
-    fs.writeFile(`./data/games/game-${n}.json`, dataString, function (err) {
-      if (err) throw err;
-      console.log('File is created successfully.');
-    });
   });
 
   // https://pupli.net/2019/06/get-a-list-of-connected-clients-in-socket-io/
@@ -108,8 +95,9 @@ io.on('connection', function (socket) {
       tempB: tempB,
     });
     const rightAnswer = checkHighestTemp(tempA, tempB);
-    console.log(checkAnswers(rightAnswer));
-    const _game = questions.getGame();
+    checkAnswers(rightAnswer);
+    writeNewScores();
+    // Todo: send new scores to dashboard
   });
 
   socket.on('disconnect', function () {
@@ -131,7 +119,9 @@ function updateClientList() {
   io.clients(function (error, clients) {
     if (error) throw error;
     listClients = clients;
+    console.log('hallo');
     console.log(listClients);
+    render.makeLeaderboard(listClients);
   });
 }
 function checkHighestTemp(_tempA, _tempB) {
@@ -147,16 +137,46 @@ function checkHighestTemp(_tempA, _tempB) {
   }
 }
 function checkAnswers(rightAnswer) {
-  if (
-    usersAnswers[0].answer == rightAnswer ||
-    (rightAnswer === 3 && usersAnswers[0].answer == 1) ||
-    (rightAnswer === 3 && usersAnswers[0].answer == 2)
-  ) {
-    console.log('goed');
-    // usersAnswers[0].userID score: + 1
-    return { userID: usersAnswers[0].userID, addToScore: 1 };
-  } else {
-    console.log('fout');
-    return { userID: usersAnswers[0].userID, addToScore: 0 };
+  // { userID: 'MIPLs5TkJSYvFPbOAAAY', addToScore: 1 }
+
+  usersAnswers.forEach(function (user) {
+    if (
+      user.answer == rightAnswer ||
+      (rightAnswer === 3 && user.answer == 1) ||
+      (rightAnswer === 3 && user.answer == 2)
+    ) {
+      console.log('goed');
+      const obj = {};
+      obj.userID = user.userID;
+      obj.addToScore = 1;
+      // usersAnswers[0].userID score: + 1
+      addAmount.push(obj);
+    } else {
+      console.log('fout');
+      const obj = {};
+      obj.userID = user.userID;
+      obj.addToScore = 0;
+      addAmount.push(obj);
+    }
+  });
+}
+function writeNewScores() {
+  const _game = questions.getGame();
+  console.log(addAmount);
+  if (addAmount.length == amountOfPlayers) {
+    console.log(_game);
+    addAmount.forEach(function (item) {
+      _game.forEach(function (_item) {
+        if (item.userID === _item.userID) {
+          _item.score = _item.score + item.addToScore;
+        }
+      });
+    });
+    const dataString = JSON.stringify(_game);
+    // write json
+    fs.writeFile(`./data/games/game-${n}.json`, dataString, function (err) {
+      if (err) throw err;
+      console.log('File is updated successfully.');
+    });
   }
 }

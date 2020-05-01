@@ -114,3 +114,6 @@ function toggleActive(element) {
 socket.on('blub', (data) => {
   console.log(data);
 });
+// window.onbeforeunload = function () {
+//   return "Please don't reload.";
+// };
