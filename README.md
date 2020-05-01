@@ -74,10 +74,6 @@ npm start
 - [ ] API omschrijving toevoegen
       [wheater api](https://openweathermap.org/current)
 
-## Data Life Cycle Diagram
-
-![Data Life Cycle Diagram](./img/data-life-cycle.jpg)
-
 ## Tools used
 
 - nodejs
@@ -89,11 +85,15 @@ npm start
 - node file system
 - socket io 2.0
 
+## Data Life Cycle Diagram
+
+![Data Life Cycle Diagram](./img/data-life-cycle.jpg)
+
 ## NPM Scripts
 
 - dev
 
-## Events
+## Socket IO Events
 
 - Connection
 - Aantal spelers
@@ -102,6 +102,7 @@ npm start
 - Chat message
 - Give answer
 - Send temp
+- Update leaderboard
 - Disconnect
 
 ## Whishlist
@@ -114,6 +115,7 @@ npm start
 ### Dataset Used
 
 [Country-capital dataset made by Samayo](https://data.world/samayo/country-capital-city) \
+
 **Changes made:**
 
 - Removed the countries that don't have capitals.
@@ -137,3 +139,5 @@ npm start
 - 📖[Socket IO - Getting Started](https://socket.io/get-started/chat/)
 - 📖[Build a Simple Chat App With NodeJS and SocketIO - Medium - Noufel Gouirhate](https://medium.com/@noufel.gouirhate/build-a-simple-chat-app-with-node-js-and-socket-io-ea716c093088)
 - 📖[List of Countries by Continents](https://simple.wikipedia.org/wiki/List_of_countries_by_continents)
+- 📖[EJS Documentation](https://ejs.co/#docs)
+- 📖[Loading images that not exist - Medium - Rahul Nanwani](https://blog.imagekit.io/how-to-handle-loading-images-that-may-not-exist-on-your-website-92e6c3c6ea63)

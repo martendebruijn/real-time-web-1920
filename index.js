@@ -98,6 +98,7 @@ io.on('connection', function (socket) {
     checkAnswers(rightAnswer);
     writeNewScores();
     // Todo: send new scores to dashboard
+    // updateLeaderboard();
   });
 
   socket.on('disconnect', function () {
@@ -161,6 +162,7 @@ function checkAnswers(rightAnswer) {
   });
 }
 function writeNewScores() {
+  // to do: sort from high to low
   const _game = questions.getGame();
   console.log(addAmount);
   if (addAmount.length == amountOfPlayers) {
@@ -172,11 +174,26 @@ function writeNewScores() {
         }
       });
     });
+    console.log(_game);
+    _game.sort(function (a, b) {
+      const _a = a.score;
+      const _b = b.score;
+      return (_a - _b) * -1;
+    });
     const dataString = JSON.stringify(_game);
     // write json
     fs.writeFile(`./data/games/game-${n}.json`, dataString, function (err) {
       if (err) throw err;
       console.log('File is updated successfully.');
+      updateLeaderboard();
     });
   }
+}
+function updateLeaderboard() {
+  const standings = questions.getGame();
+  console.log('STANDINGS');
+  console.log(standings);
+  io.sockets.emit('update leaderboard', {
+    _test: standings,
+  });
 }

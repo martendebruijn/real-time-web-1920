@@ -77,6 +77,12 @@ const timer = setInterval(function () {
       rightTemp.innerText = `${tempB} graden`;
     });
 
+    // update leaderboard
+    socket.on('update leaderboard', function (data) {
+      console.log(data);
+      // _test = [{score: 1, userID: ""}]
+    });
+
     clearInterval(timer);
   } else if (t < 10) {
     countdown.innerText = `0${t--}`;
