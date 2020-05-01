@@ -1,11 +1,14 @@
 const fs = require('fs');
+const capitalsUrl = 'data/capitals.json';
+const gameUrl = 'data/games/game-1.json';
 
 module.exports = {
-  readFromJson,
+  makeGame,
+  getPlayers,
 };
 
-function readFromJson() {
-  const readFile = fs.readFileSync('data/capitals.json');
+function readFromJson(url) {
+  const readFile = fs.readFileSync(url);
   // console.dir(JSON.parse(readFile), { maxArrayLength: null });
   return JSON.parse(readFile);
 }
@@ -14,7 +17,7 @@ function randomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-const allCities = readFromJson();
+const allCities = readFromJson(capitalsUrl);
 let cloneCities = allCities.slice();
 let questions = [];
 
@@ -39,8 +42,17 @@ function addQuestion(n) {
 }
 
 function makeGame(max) {
+  // todo: laat de gebruiker zelf kiezen hoeveel vragen hij/zij wilt
+  // + mogelijkheid om te filteren op continenten
   for (i = 1; i < max; i++) {
     addQuestion(i);
   }
+  return questions;
 }
-makeGame(11);
+
+function getPlayers() {
+  const currGame = readFromJson(gameUrl);
+  return currGame;
+}
+// console.log('KIJK');
+// console.log(getPlayers());

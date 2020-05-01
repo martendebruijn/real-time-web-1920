@@ -13,5 +13,9 @@ async function getWeather(city) {
   const response = await fetch(url);
   const jsonData = await response.json();
   const temp = jsonData.main.temp;
+  if (!temp) {
+    console.log(`I don't know this ${city}, so I made temp 20deg.`);
+    temp = 20;
+  }
   return temp;
 }

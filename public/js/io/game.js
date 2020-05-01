@@ -5,6 +5,9 @@ const messageInput = document.getElementById('m');
 const cityLeft = document.querySelector('.city-left');
 const cityRight = document.querySelector('.city-right');
 const countdown = document.getElementById('countdown');
+const leftTemp = document.getElementById('tempA');
+const rightTemp = document.getElementById('tempB');
+
 getUserID();
 
 // // emit typing
@@ -36,6 +39,7 @@ function getUsername() {
   return username;
 }
 function getUserID() {
+  // different tabs got the same local storage thus the same userID
   let userID = localStorage.getItem('userID');
   if (!userID) {
     window.location.href = '/';
@@ -66,8 +70,12 @@ const timer = setInterval(function () {
       userID: getUserID(),
       answer: whichAnswer(),
     });
-    // listen for answer
-    // socket.on('')
+    socket.on('send temp', function (data) {
+      const tempA = data.tempA;
+      const tempB = data.tempB;
+      leftTemp.innerText = `${tempA} graden`;
+      rightTemp.innerText = `${tempB} graden`;
+    });
 
     clearInterval(timer);
   } else if (t < 10) {
@@ -101,3 +109,8 @@ function checkActive(element) {
 function toggleActive(element) {
   element.classList.toggle('active');
 }
+
+// leaderboard
+socket.on('blub', (data) => {
+  console.log(data);
+});
