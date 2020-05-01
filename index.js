@@ -6,6 +6,7 @@ const fs = require('fs');
 let amountOfPlayers = 0; // kan ook met: io.engine.clientsCount
 var listClients;
 let n = 1;
+let usersAnswers = []; // todo: clear array when next question loads
 
 // static assets folder
 app.use(express.static('public'));
@@ -41,6 +42,8 @@ io.on('connection', function (socket) {
   amountOfPlayers++;
   console.log('spelers:' + amountOfPlayers);
 
+  const userID = socket.id;
+
   // broadcast amount of players
   broadcastPlayerAmount();
   updateClientList();
@@ -70,10 +73,12 @@ io.on('connection', function (socket) {
       console.log('File is created successfully.');
     });
   });
+
   // https://pupli.net/2019/06/get-a-list-of-connected-clients-in-socket-io/
   // listen on chat message
   socket.on('chat message', (data) => {
     // broadcast new message
+    console.log(userID);
     io.sockets.emit('chat message', {
       message: data.message,
       username: socket.username,
@@ -82,21 +87,29 @@ io.on('connection', function (socket) {
 
   // listen on give answer
   socket.on('give answer', async function (data) {
-    console.log(data); // log het gegeven antwoord
+    usersAnswers = [];
+    const obj = {};
+    obj.userID = userID;
+    obj.answer = data.answer;
+    usersAnswers.push(obj);
+    console.log(usersAnswers);
     const currentQuestion = currentQuestions[0].question1;
     const cityA = currentQuestion.city1.city;
     const cityB = currentQuestion.city2.city;
     // const tempA = await api.getWeather(cityA);
     // const tempB = await api.getWeather(cityB);
     const tempA = 15;
-    const tempB = 8;
-    console.log(tempA);
-    console.log(tempB);
+    const tempB = 15;
+    // console.log(tempA);
+    // console.log(tempB);
     // broadcast temperatures
     io.sockets.emit('send temp', {
       tempA: tempA,
       tempB: tempB,
     });
+    const rightAnswer = checkHighestTemp(tempA, tempB);
+    console.log(checkAnswers(rightAnswer));
+    const _game = questions.getGame();
   });
 
   socket.on('disconnect', function () {
@@ -120,4 +133,30 @@ function updateClientList() {
     listClients = clients;
     console.log(listClients);
   });
+}
+function checkHighestTemp(_tempA, _tempB) {
+  if (_tempA > _tempB) {
+    console.log('1');
+    return 1;
+  } else if (_tempA < _tempB) {
+    console.log('2');
+    return 2;
+  } else if (_tempA == _tempB) {
+    console.log('draw');
+    return 3;
+  }
+}
+function checkAnswers(rightAnswer) {
+  if (
+    usersAnswers[0].answer == rightAnswer ||
+    (rightAnswer === 3 && usersAnswers[0].answer == 1) ||
+    (rightAnswer === 3 && usersAnswers[0].answer == 2)
+  ) {
+    console.log('goed');
+    // usersAnswers[0].userID score: + 1
+    return { userID: usersAnswers[0].userID, addToScore: 1 };
+  } else {
+    console.log('fout');
+    return { userID: usersAnswers[0].userID, addToScore: 0 };
+  }
 }

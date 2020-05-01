@@ -4,7 +4,7 @@ const gameUrl = 'data/games/game-1.json';
 
 module.exports = {
   makeGame,
-  getPlayers,
+  getGame,
 };
 
 function readFromJson(url) {
@@ -50,7 +50,7 @@ function makeGame(max) {
   return questions;
 }
 
-function getPlayers() {
+function getGame() {
   const currGame = readFromJson(gameUrl);
   return currGame;
 }

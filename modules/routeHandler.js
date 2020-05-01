@@ -20,7 +20,7 @@ function game(req, res) {
   console.log(q);
   const cityA = q.city1;
   const cityB = q.city2;
-  const players = questions.getPlayers();
+  const players = questions.getGame();
   res.render('game', {
     title: 'game',
     style: 'game',

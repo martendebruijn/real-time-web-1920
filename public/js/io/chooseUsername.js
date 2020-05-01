@@ -13,7 +13,7 @@ usernameForm.addEventListener('submit', function (e) {
   e.preventDefault();
   socket.emit('change username', { username: usernameInput.value });
   localStorage.setItem('username', usernameInput.value);
-  localStorage.setItem('userID', socket.id);
+  // localStorage.setItem('userID', socket.id);
   usernameInput.value = '';
   return false;
 });

@@ -8,7 +8,7 @@ const countdown = document.getElementById('countdown');
 const leftTemp = document.getElementById('tempA');
 const rightTemp = document.getElementById('tempB');
 
-getUserID();
+// getUserID();
 
 // // emit typing
 // messageForm.addEventListener('keypress', function (e) {
@@ -38,14 +38,14 @@ function getUsername() {
   }
   return username;
 }
-function getUserID() {
-  // different tabs got the same local storage thus the same userID
-  let userID = localStorage.getItem('userID');
-  if (!userID) {
-    window.location.href = '/';
-  }
-  return userID;
-}
+// function getUserID() {
+//   // different tabs got the same local storage thus the same userID
+//   let userID = socket.id;
+//   if (!userID) {
+//     window.location.href = '/';
+//   }
+//   return userID;
+// }
 
 cityLeft.addEventListener('click', function (e) {
   if (checkActive(cityRight)) {
@@ -67,7 +67,7 @@ const timer = setInterval(function () {
     console.log('submit and show answers');
     // emit answer
     socket.emit('give answer', {
-      userID: getUserID(),
+      // userID: getUserID(),
       answer: whichAnswer(),
     });
     socket.on('send temp', function (data) {
