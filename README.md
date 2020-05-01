@@ -150,6 +150,7 @@ npm start
     - [ ] Countdown animatie toevoegen
     - [ ] Feedback correcte antwoord geven
     - [ ] Responsive maken
+    - [ ] Make placeholder for when the image can't be find
   - [ ] README
     - [ ] Concept aanpassen
     - [ ] Data Life Cycle diagram aanpassen
