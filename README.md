@@ -201,6 +201,7 @@ npm start
     - [ ] Data Life Cycle diagram aanpassen
     - [ ] Api sectie aanpassen
     - [ ] Custom events toevoegen
-          <br/>
+
+<br/>
           ❤️ Thanks for reading ❤️<br/>
           ❤️ Marten de Bruijn ❤️
