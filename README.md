@@ -32,34 +32,40 @@ npm start
 
 ## Table of Contents
 
-- [⚠️ Known Issues ⚠️](#⚠️-Known-Issues-⚠️)
-- [API](#Api)
-- [Tools Used](#Tools-used)
-- [Data Life Cycle Diagram](#data-life-cycle-diagram)
-- [NPM Scripts](#NPM-Scripts)
-- [Socket IO Events](#Socket-IO-Events)
-- [Whishlist](#Whishlist)
-- [Credits](#Credits)
+- [⚠️ Known Issues](#⚠️-Known-Issues)
+  - [API can't find city](#api-can't-find-city)
+- [🐒API](#🐒-Api)
+- [🛠 Tools Used](#🛠-Tools-used)
+- [📈 Data Life Cycle Diagram](#📈-data-life-cycle-diagram)
+- [⚙️ NPM Scripts](#⚙️-NPM-Scripts)
+- [🧦 Socket IO Events](#🧦-Socket-IO-Events)
+- [❌ Errors](#❌-Errors)
+  - [API can't find a city](#API-can't-find-a-city)
+  - [Other](#Other)
+- [✨ Whishlist](#✨-Whishlist)
+- [🙌 Credits](#🙌-Credits)
   - [Dataset Used](#Dataset-Used)
-- [Sources](#Sources)
-- [Todo list](#Todo-list)
+- [📚 Sources](#📚-Sources)
+- [✅ Todo list](#✅-Todo-list)
 
-## ⚠️ Known Issues ⚠️
+## ⚠️ Known Issues
 
 - Leaderboard wordt bij de 1e vraag niet geupdate
 - Chat messages worden niet meer weergegeven
 - `TypeError: Cannot read property 'temp' of undefined` -> api.js:12 -> index.js:88
 
-### Steden die niet gevonden worden
+### API can't find city
+
+> ❗️ This isn't updated anymore. When the API can't find a city, it will be automaticcly added to `api-city-bugs.txt`.
 
 - Nursultan
 
-## API
+## 🐒 API
 
 - [ ] API omschrijving toevoegen
       [wheater api](https://openweathermap.org/current)
 
-## Tools used
+## 🛠 Tools used
 
 - nodejs
 - nodemon
@@ -70,15 +76,15 @@ npm start
 - node file system
 - socket io 2.0
 
-## Data Life Cycle Diagram
+## 📈 Data Life Cycle Diagram
 
 ![Data Life Cycle Diagram](./img/data-life-cycle.jpg)
 
-## NPM Scripts
+## ⚙️ NPM Scripts
 
 - dev
 
-## Socket IO Events
+## 🧦 Socket IO Events
 
 - Connection
 - Aantal spelers
@@ -92,14 +98,27 @@ npm start
 - Final leaderboard
 - Disconnect
 
-## Whishlist
+## ❌ Errors
+
+### API can't find a city
+
+- `Error: in getWeather() in api.js kon de api ${city} niet vinden.`
+- This city will automaticly be added to `api-city-bugs.txt`
+
+### Other
+
+- console.log('Error: checkHighestTemp() in index.js gave no output.');
+- 'Error: in checkAnswers() in index.js, amount of answers received is not equal to the amount of players playing.'
+- 'Error: in writeNewScores() in index.js length of addAmount is not equal to the amount of players or question index is not under 9.'
+
+## ✨ Whishlist
 
 - Voeg toe dat de laatst opgehaalde temperatuur bij de dataset wordt toegevoegd voor als de app over het request limiet van de api heen is.
 - Ervoor zorgen dat wanneer de api een stad niet kan vinden, de stad automatisch wordt toegevoegd aan een bugs file.
 - Ervoor zorgen dat als een stad niet gevonden wordt, er een api call wordt gedaan met het land i.p.v. de stad.
 - Ervoor zorgen dat als een land niet gevonden kan worden (verkeerd gespeld/too many request) een andere stad ervoor in de plaats komt.
 
-## Credits
+## 🙌 Credits
 
 - [Meyerweb: CSS Reset](http://meyerweb.com/eric/tools/css/reset/)
 - [Tobiashlin: Document ready from jquery to vanilla JS](https://tobiasahlin.com/blog/move-from-jquery-to-vanilla-javascript/#document-ready)
@@ -123,8 +142,9 @@ npm start
 - Changed the capital city of Myanmar from `Rangoon` to `Naypyidaw` since it's [the new capital of Myanmar](https://simple.wikipedia.org/wiki/Naypyidaw).
 - Removed `Yugoslavia` since it is [a former country](https://en.wikipedia.org/wiki/Yugoslavia).
 - Added images of the countries flag.
+- Need to add a display name and a search name as the api don't seems to find cities with `é` `á` etc...
 
-## Sources
+## 📚 Sources
 
 📖 Artikel / Documentation | ⚙️ Code | 📹 Video | 🛠 Tools
 
@@ -134,7 +154,7 @@ npm start
 - 📖 [EJS Documentation](https://ejs.co/#docs)
 - 📖 [Loading images that not exist - Medium - Rahul Nanwani](https://blog.imagekit.io/how-to-handle-loading-images-that-may-not-exist-on-your-website-92e6c3c6ea63)
 
-## To do list
+## ✅ To do list
 
 - [ ] Real Time Web
   - [ ] Chat functie
