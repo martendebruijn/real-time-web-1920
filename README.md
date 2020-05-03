@@ -202,5 +202,5 @@ npm start
     - [ ] Api sectie aanpassen
     - [ ] Custom events toevoegen
 
-❤️ Thanks for reading ❤️
+❤️ Thanks for reading ❤️<br/>
 ❤️ Marten de Bruijn ❤️
