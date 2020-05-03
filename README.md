@@ -30,7 +30,7 @@ npm install
 npm start
 ```
 
-## Table of Contents
+## 📍 Table of Contents
 
 - [⚠️ Known Issues](#%EF%B8%8F-known-issues)
   - [API can't find city](#api-can't-find-city)
@@ -202,4 +202,5 @@ npm start
     - [ ] Api sectie aanpassen
     - [ ] Custom events toevoegen
 
+❤️ Thanks for reading ❤️
 ❤️ Marten de Bruijn ❤️
