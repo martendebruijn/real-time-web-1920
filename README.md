@@ -2,11 +2,11 @@
 
 **Week 1 code zie [branch week-1](https://github.com/martendebruijn/real-time-web-1920/tree/week-1)**
 
-## Introductie
+## 👾 Introductie
 
 Stukje introductie tekst over de course etc.
 
-## Concept
+## ✏️ Concept
 
 Mijn concept is een spel die gebruik maakt van real time voetbal wedstrijd standen. Gebruikers kunnen tegen elkaar spelen. Ze kunnen aanklikken welk team het eerstvolgende doelpunt gaat maken. Als de gebruiker het goed heeft verdiend hij of zij een punt. Hiermee kan men live interactief gokken op wedstrijden.
 \
@@ -17,11 +17,11 @@ Omdat de meeste competities momenteel stil liggen vanwege Covid-19, focus ik mij
 
 <!-- Zie de [wiki](https://github.com/martendebruijn/real-time-web-1920/wiki) voor een uitgebreidere uitleg. -->
 
-## Live Demo
+## 🕹 Live Demo
 
 [Bekijk hier een live demo 😃](#)
 
-## Usage
+## 👨‍🦯 Usage
 
 ```
 git clone https://github.com/martendebruijn/real-time-web-1920.git
@@ -32,21 +32,21 @@ npm start
 
 ## Table of Contents
 
-- [⚠️ Known Issues](#⚠️-Known-Issues)
+- [⚠️ Known Issues](#%EF%B8%8F-known-issues)
   - [API can't find city](#api-can't-find-city)
-- [🐒API](#🐒-Api)
-- [🛠 Tools Used](#🛠-Tools-used)
-- [📈 Data Life Cycle Diagram](#📈-data-life-cycle-diagram)
-- [⚙️ NPM Scripts](#⚙️-NPM-Scripts)
+- [🐒API](#-Api)
+- [🛠 Tools Used](#-Tools-used)
+- [📈 Data Life Cycle Diagram](#-data-life-cycle-diagram)
+- [⚙️ NPM Scripts](#%EF%B8%8F-npm-scripts)
 - [🧦 Socket IO Events](#🧦-Socket-IO-Events)
 - [❌ Errors](#❌-Errors)
   - [API can't find a city](#API-can't-find-a-city)
   - [Other](#Other)
-- [✨ Whishlist](#✨-Whishlist)
-- [🙌 Credits](#🙌-Credits)
+- [✨ Whishlist](#-Whishlist)
+- [🙌 Credits](#-Credits)
   - [Dataset Used](#Dataset-Used)
-- [📚 Sources](#📚-Sources)
-- [✅ Todo list](#✅-Todo-list)
+- [📚 Sources](#-Sources)
+- [✅ Todo list](#-Todo-list)
 
 ## ⚠️ Known Issues
 
@@ -56,7 +56,7 @@ npm start
 
 ### API can't find city
 
-> ❗️ This isn't updated anymore. When the API can't find a city, it will be automaticcly added to `api-city-bugs.txt`.
+> ❗️ This isn't updated anymore. When the API can't find a city, it will be automaticly added to `api-city-bugs.txt`.
 
 - Nursultan
 
@@ -201,3 +201,5 @@ npm start
     - [ ] Data Life Cycle diagram aanpassen
     - [ ] Api sectie aanpassen
     - [ ] Custom events toevoegen
+
+❤️ Marten de Bruijn ❤️
