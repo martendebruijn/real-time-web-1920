@@ -8,6 +8,12 @@ let amountOfPlayers = 0; // kan ook met: io.engine.clientsCount
 var listClients;
 let usersAnswers = []; // todo: clear array when next question loads
 let addAmount = [];
+let questionIndex = 0;
+
+fs.writeFile(`./data/games/game-${n}.json`, '[]', function (err) {
+  if (err) throw err;
+  console.log('File is created successfully.');
+});
 
 // static assets folder
 app.use(express.static('public'));
@@ -77,13 +83,15 @@ io.on('connection', function (socket) {
 
   // listen on give answer
   socket.on('give answer', async function (data) {
+    console.log('QUESTIONINDEX');
+    console.log(questionIndex);
     usersAnswers = [];
     const obj = {};
     obj.userID = userID;
     obj.answer = data.answer;
     usersAnswers.push(obj);
     console.log(usersAnswers);
-    const currentQuestion = currentQuestions[0].question1;
+    const currentQuestion = currentQuestions[questionIndex].question;
     const cityA = currentQuestion.city1.city;
     const cityB = currentQuestion.city2.city;
     // const tempA = await api.getWeather(cityA);
@@ -100,8 +108,11 @@ io.on('connection', function (socket) {
     const rightAnswer = checkHighestTemp(tempA, tempB);
     checkAnswers(rightAnswer);
     writeNewScores(userID);
-    // Todo: send new scores to dashboard
-    // updateLeaderboard();
+    const nextQuestion = currentQuestions[questionIndex + 1].question;
+    io.sockets.emit('next question', { nextQuestion });
+    questionIndex++;
+    usersAnswers = [];
+    addAmount = [];
   });
 
   socket.on('disconnect', function () {
@@ -167,7 +178,6 @@ function writeNewScores(id) {
   console.log(id);
   // to do: sort from high to low
   const _game = questions.getGame();
-  console.log('HIER ERGENS GAAT HET FOUT');
   console.log(addAmount);
   if (addAmount.length == amountOfPlayers) {
     console.log(_game);
@@ -185,10 +195,14 @@ function writeNewScores(id) {
       return (_a - _b) * -1;
     });
     const dataString = JSON.stringify(_game);
+    // console.log('GAAT HET HIER FOUT?');
+    console.log(dataString);
     // write json
     fs.writeFile(`./data/games/game-${n}.json`, dataString, function (err) {
       if (err) throw err;
       console.log('File is updated successfully.');
+      console.log('ID???');
+      console.log(id);
       updateLeaderboard(id);
     });
   }

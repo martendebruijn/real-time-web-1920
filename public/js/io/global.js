@@ -32,6 +32,11 @@ const countdown = document.getElementById('countdown');
 const leftTemp = document.getElementById('tempA');
 const rightTemp = document.getElementById('tempB');
 const leaderboard = document.getElementById('js-leaderboard');
+const imgcitya = document.getElementById('cityaimg');
+const imgcityb = document.getElementById('citybimg');
+const cityaname = document.getElementById('cityaname');
+const citybname = document.getElementById('citybname');
+let questionIndex = 0;
 
 socket.on('aantal spelers', (data) => {
   playerCount.innerText = `${data.spelers} spelers`;
@@ -87,6 +92,48 @@ socket.on('chat message', (data) => {
   messages.append(msgEl);
 });
 
+socket.on('send temp', function (data) {
+  const tempA = data.tempA;
+  const tempB = data.tempB;
+  leftTemp.innerText = `${tempA} graden`;
+  rightTemp.innerText = `${tempB} graden`;
+});
+
+// update leaderboard
+socket.on('update leaderboard', function (data) {
+  console.log(data);
+  data.standings.forEach(function (item) {
+    const el = document.getElementById(item.userID);
+    const scoreEl = el.getElementsByClassName('s')[0];
+    scoreEl.innerText = item.score;
+  });
+});
+
+// render volgende vraag
+socket.on('next question', function (data) {
+  console.log(data);
+  // render
+  const _q = data.nextQuestion;
+  const c1 = _q.city1;
+  const c2 = _q.city2;
+  setTimeout(function () {
+    imgcitya.src = c1.imgURL;
+    imgcityb.src = c2.imgURL;
+    cityaname.innerText = c1.city;
+    citybname.innerText = c2.city;
+    leftTemp.innerText = '';
+    rightTemp.innerText = '';
+    // remove active class
+    const activeEl = whichAnswer();
+    if (activeEl === 1) {
+      cityLeft.classList.toggle('active');
+    } else if (activeEl === 2) {
+      cityRight.classList.toggle('active');
+    }
+    timerFunction();
+  }, 3000);
+});
+
 cityLeft.addEventListener('click', function (e) {
   if (checkActive(cityRight)) {
     toggleActive(cityRight);
@@ -102,6 +149,7 @@ cityRight.addEventListener('click', function (e) {
 });
 // element.setTimeout(function, milliseconds)
 function timerFunction() {
+  console.log(questionIndex);
   let t = 5;
   const timer = setInterval(function () {
     if (t < 0) {
@@ -111,23 +159,10 @@ function timerFunction() {
         // userID: getUserID(),
         answer: whichAnswer(),
       });
-      socket.on('send temp', function (data) {
-        const tempA = data.tempA;
-        const tempB = data.tempB;
-        leftTemp.innerText = `${tempA} graden`;
-        rightTemp.innerText = `${tempB} graden`;
-      });
 
-      // update leaderboard
-      socket.on('update leaderboard', function (data) {
-        console.log(data);
-        data.standings.forEach(function (item) {
-          const el = document.getElementById(item.userID);
-          const scoreEl = el.getElementsByClassName('s')[0];
-          scoreEl.innerText = item.score;
-        });
-      });
-
+      questionIndex++;
+      console.log('QUESTIONINDEX');
+      console.log(questionIndex);
       clearInterval(timer);
     } else if (t < 10) {
       countdown.innerText = `0${t--}`;

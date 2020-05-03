@@ -11,7 +11,7 @@ module.exports = {
 };
 function home(req, res) {
   console.log(gameQuestions);
-  const q = gameQuestions[0].question1;
+  const q = gameQuestions[0].question;
   console.log(q);
   const cityA = q.city1;
   const cityB = q.city2;

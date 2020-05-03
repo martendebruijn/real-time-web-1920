@@ -33,7 +33,7 @@ function removeFromClone(i) {
 }
 
 function addQuestion(n) {
-  const key = `question${n}`;
+  const key = `question`;
   const obj = {};
   const city1 = randomCity();
   const city2 = randomCity();

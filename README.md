@@ -77,6 +77,8 @@ npm start
 - Give answer
 - Send temp
 - Update leaderboard
+- Next question
+- Final leaderboard
 - Disconnect
 
 ## Whishlist
@@ -139,10 +141,12 @@ npm start
     - [ ] Nicknames weergeven in leaderboard
     - [ ] Toevoeging geven als er dezelfde nicknames zijn
   - [ ] Game
-    - [ ] Nieuwe vraag renderen
+    - [x] Nieuwe vraag renderen
     - [ ] Add country
     - [ ] Add current time
     - [ ] Add possibility to filter on continent
+    - [ ] Add final scores
+    - [ ] Add 'Next round in ...' timer
   - [ ] Code opschonen
     - [ ] Code meer splitsen in functies
     - [ ] Code meer splitsen in modules
