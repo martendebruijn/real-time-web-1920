@@ -8,8 +8,12 @@ module.exports = { getWeather };
 async function getWeather(city) {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`,
     response = await fetch(url),
-    jsonData = await response.json(),
-    temp = jsonData.main.temp;
+    jsonData = await response.json();
+  console.log(
+    `getWeather() jsonData: ${jsonData}. Soms kan jsonData.main.temp niet gevonden worden`
+  );
+
+  const temp = jsonData.main.temp;
   if (!temp) {
     console.log(
       'Error: in getWeather() in api.js, could not get data from api.'

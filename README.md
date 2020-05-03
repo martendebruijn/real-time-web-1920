@@ -46,17 +46,13 @@ npm start
 
 ## ⚠️ Known Issues ⚠️
 
-- Asunción of/en Cayenne kan niet gevonden worden door de api
 - Leaderboard wordt bij de 1e vraag niet geupdate
-- San Marino of/en Bogotá kan niet gevonden worden door de api
 - Chat messages worden niet meer weergegeven
+- `TypeError: Cannot read property 'temp' of undefined` -> api.js:12 -> index.js:88
 
 ### Steden die niet gevonden worden
 
-- Asunción of/en Cayenne
-- San Marino of/en Bogotá
-- Cockburn Town of/en Nursultan
-- Asunción of/en Vaduz
+- Nursultan
 
 ## API
 
