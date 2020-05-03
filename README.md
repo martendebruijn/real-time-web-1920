@@ -67,14 +67,14 @@ npm start
 
 ## 🛠 Tools used
 
-- nodejs
-- nodemon
-- ejs
-- expressjs
-- dotenv
-- heroku
-- node file system
-- socket io 2.0
+- [NodeJS](https://nodejs.org/en/)
+- [Nodemon](https://www.npmjs.com/package/nodemon)
+- [Ejs](https://www.npmjs.com/package/ejs)
+- [Expressjs](https://expressjs.com/)
+- [Dotenv](https://www.npmjs.com/package/dotenv)
+- [Heroku](https://dashboard.heroku.com/)
+- [Node File System](https://nodejs.org/api/fs.html)
+- [SocketIO 2.0](https://socket.io/)
 
 ## 📈 Data Life Cycle Diagram
 
