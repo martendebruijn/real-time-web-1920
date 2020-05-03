@@ -196,7 +196,11 @@ npm start
       - [ ] Add minifying
         - [ ] CSS
         - [ ] ES
-  - [ ] README - [ ] Concept aanpassen - [ ] Data Life Cycle diagram aanpassen - [ ] Api sectie aanpassen - [ ] Custom events toevoegen
-        <br/>
-        ❤️ Thanks for reading ❤️<br/>
-        ❤️ Marten de Bruijn ❤️
+  - [ ] README
+    - [ ] Concept aanpassen
+    - [ ] Data Life Cycle diagram aanpassen
+    - [ ] Api sectie aanpassen
+    - [ ] Custom events toevoegen
+          <br/>
+          ❤️ Thanks for reading ❤️<br/>
+          ❤️ Marten de Bruijn ❤️
