@@ -1,21 +1,17 @@
-const api = require('./api.js');
-const questions = require('./questions.js');
-const gameQuestions = questions.makeGame(11);
-const fs = require('fs');
+const questions = require('./questions.js'),
+  gameQuestions = questions.makeGame(11),
+  storage = require('./storage.js');
 let n = 1;
-
 module.exports = {
   home,
   gameQuestions,
   makeLeaderboard,
 };
 function home(req, res) {
-  console.log(gameQuestions);
-  const q = gameQuestions[0].question;
-  console.log(q);
-  const cityA = q.city1;
-  const cityB = q.city2;
-  const players = questions.getGame();
+  const q = gameQuestions[0].question,
+    cityA = q.city1,
+    cityB = q.city2,
+    players = questions.getGame();
   res.render('home', {
     title: 'home',
     cityOne: cityA.city,
@@ -35,9 +31,5 @@ function makeLeaderboard(listClients) {
     gameScores.push(obj);
   });
   const dataString = JSON.stringify(gameScores);
-  // sla players op in json bestand
-  fs.writeFile(`./data/games/game-${n}.json`, dataString, function (err) {
-    if (err) throw err;
-    console.log('File is created successfully.');
-  });
+  storage.write(`./data/games/game-${n}.json`, dataString);
 }

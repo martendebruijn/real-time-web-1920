@@ -13,29 +13,25 @@ ready(() => {
   });
 });
 
-// https://medium.com/@noufel.gouirhate/build-a-simple-chat-app-with-node-js-and-socket-io-ea716c093088
-// https://github.com/guidobouman/rtw-chat/blob/master/main.js
-// https://openweathermap.org/current
-
-const usernameForm = document.getElementById('changeUsername');
-const usernameInput = document.getElementById('u');
-const playerCount = document.getElementById('playerCount');
-const playEl = document.getElementById('play');
-const home = document.getElementById('change_username');
-const rGame = document.getElementById('game');
-const messages = document.getElementById('messages');
-const messageForm = document.getElementById('sendMessage');
-const messageInput = document.getElementById('m');
-const cityLeft = document.querySelector('.city-left');
-const cityRight = document.querySelector('.city-right');
-const countdown = document.getElementById('countdown');
-const leftTemp = document.getElementById('tempA');
-const rightTemp = document.getElementById('tempB');
-const leaderboard = document.getElementById('js-leaderboard');
-const imgcitya = document.getElementById('cityaimg');
-const imgcityb = document.getElementById('citybimg');
-const cityaname = document.getElementById('cityaname');
-const citybname = document.getElementById('citybname');
+const usernameForm = document.getElementById('changeUsername'),
+  usernameInput = document.getElementById('u'),
+  playerCount = document.getElementById('playerCount'),
+  playEl = document.getElementById('play'),
+  home = document.getElementById('change_username'),
+  rGame = document.getElementById('game'),
+  messages = document.getElementById('messages'),
+  messageForm = document.getElementById('sendMessage'),
+  messageInput = document.getElementById('m'),
+  cityLeft = document.querySelector('.city-left'),
+  cityRight = document.querySelector('.city-right'),
+  countdown = document.getElementById('countdown'),
+  leftTemp = document.getElementById('tempA'),
+  rightTemp = document.getElementById('tempB'),
+  leaderboard = document.getElementById('js-leaderboard'),
+  imgcitya = document.getElementById('cityaimg'),
+  imgcityb = document.getElementById('citybimg'),
+  cityaname = document.getElementById('cityaname'),
+  citybname = document.getElementById('citybname');
 let questionIndex = 0;
 
 socket.on('aantal spelers', (data) => {
@@ -86,15 +82,15 @@ messageForm.addEventListener('submit', function (e) {
 
 // listen on new message
 socket.on('chat message', (data) => {
-  const msgEl = document.createElement('p');
-  const username = getUsername();
+  const msgEl = document.createElement('p'),
+    username = getUsername();
   msgEl.innerText = `${username}: ${data.message}`;
   messages.append(msgEl);
 });
 
 socket.on('send temp', function (data) {
-  const tempA = data.tempA;
-  const tempB = data.tempB;
+  const tempA = data.tempA,
+    tempB = data.tempB;
   leftTemp.innerText = `${tempA} graden`;
   rightTemp.innerText = `${tempB} graden`;
 });
@@ -103,8 +99,8 @@ socket.on('send temp', function (data) {
 socket.on('update leaderboard', function (data) {
   console.log(data);
   data.standings.forEach(function (item) {
-    const el = document.getElementById(item.userID);
-    const scoreEl = el.getElementsByClassName('s')[0];
+    const el = document.getElementById(item.userID),
+      scoreEl = el.getElementsByClassName('s')[0];
     scoreEl.innerText = item.score;
   });
 });
@@ -113,9 +109,9 @@ socket.on('update leaderboard', function (data) {
 socket.on('next question', function (data) {
   console.log(data);
   // render
-  const _q = data.nextQuestion;
-  const c1 = _q.city1;
-  const c2 = _q.city2;
+  const _q = data.nextQuestion,
+    c1 = _q.city1,
+    c2 = _q.city2;
   setTimeout(function () {
     imgcitya.src = c1.imgURL;
     imgcityb.src = c2.imgURL;
@@ -126,9 +122,9 @@ socket.on('next question', function (data) {
     // remove active class
     const activeEl = whichAnswer();
     if (activeEl === 1) {
-      cityLeft.classList.toggle('active');
+      toggleActive(cityLeft);
     } else if (activeEl === 2) {
-      cityRight.classList.toggle('active');
+      toggleActive(cityRight);
     }
     timerFunction();
   }, 3000);
@@ -174,8 +170,8 @@ function timerFunction() {
 
 // check which answer is given
 function whichAnswer() {
-  const answerOne = checkActive(cityLeft);
-  const answerTwo = checkActive(cityRight);
+  const answerOne = checkActive(cityLeft),
+    answerTwo = checkActive(cityRight);
   if (answerOne) {
     console.log('answer 1');
     return 1;
@@ -196,11 +192,3 @@ function checkActive(element) {
 function toggleActive(element) {
   element.classList.toggle('active');
 }
-
-// leaderboard
-socket.on('blub', (data) => {
-  console.log(data);
-});
-// window.onbeforeunload = function () {
-//   return "Please don't reload.";
-// };

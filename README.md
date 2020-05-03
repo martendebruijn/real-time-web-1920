@@ -143,7 +143,7 @@ npm start
   - [ ] Game
     - [x] Nieuwe vraag renderen
     - [ ] Add country
-    - [ ] Add current time
+    - [ ] Add current time (of city)
     - [ ] Add possibility to filter on continent
     - [ ] Add final scores
     - [ ] Add 'Next round in ...' timer

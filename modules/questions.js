@@ -1,29 +1,24 @@
-const fs = require('fs');
-const capitalsUrl = 'data/capitals.json';
-const gameUrl = 'data/games/game-1.json';
+const fs = require('fs'),
+  capitalsUrl = 'data/capitals.json',
+  gameUrl = 'data/games/game-1.json',
+  storage = require('./storage.js');
 
 module.exports = {
   makeGame,
   getGame,
 };
 
-function readFromJson(url) {
-  const readFile = fs.readFileSync(url);
-  // console.dir(JSON.parse(readFile), { maxArrayLength: null });
-  return JSON.parse(readFile);
-}
-
 function randomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-const allCities = readFromJson(capitalsUrl);
-let cloneCities = allCities.slice();
-let questions = [];
+const allCities = storage.read(capitalsUrl);
+let cloneCities = allCities.slice(),
+  questions = [];
 
 function randomCity() {
-  const n = randomInt(cloneCities.length);
-  const city = cloneCities[n];
+  const n = randomInt(cloneCities.length),
+    city = cloneCities[n];
   removeFromClone(n);
   return city;
 }
@@ -33,10 +28,10 @@ function removeFromClone(i) {
 }
 
 function addQuestion(n) {
-  const key = `question`;
-  const obj = {};
-  const city1 = randomCity();
-  const city2 = randomCity();
+  const key = `question`,
+    obj = {},
+    city1 = randomCity(),
+    city2 = randomCity();
   obj[key] = { city1: city1, city2: city2 };
   questions.push(obj);
 }
@@ -51,7 +46,7 @@ function makeGame(max) {
 }
 
 function getGame() {
-  const currGame = readFromJson(gameUrl);
+  const currGame = storage.read(gameUrl);
   return currGame;
 }
 // console.log('KIJK');

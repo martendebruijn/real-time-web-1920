@@ -1,40 +1,27 @@
-const express = require('express');
-const dotenv = require('dotenv').config();
-const port = process.env.PORT || 3000;
-const app = express();
-const fs = require('fs');
-let n = 1;
-let amountOfPlayers = 0; // kan ook met: io.engine.clientsCount
+const express = require('express'),
+  dotenv = require('dotenv').config(),
+  port = process.env.PORT || 3000,
+  app = express(),
+  fs = require('fs'),
+  currentQuestions = render.gameQuestions,
+  render = require('./modules/routeHandler.js'),
+  questions = require('./modules/questions.js'),
+  api = require('./modules/api.js'),
+  storage = require('./modules/storage.js');
+let n = 1,
+  amountOfPlayers = 0, // kan ook met: io.engine.clientsCount
+  usersAnswers = [],
+  addAmount = [],
+  questionIndex = 0;
 var listClients;
-let usersAnswers = []; // todo: clear array when next question loads
-let addAmount = [];
-let questionIndex = 0;
 // let users = [];
 
-fs.writeFile(`./data/games/game-${n}.json`, '[]', function (err) {
-  if (err) throw err;
-  console.log('File is created successfully.');
-});
-
-// static assets folder
-app.use(express.static('public'));
-
-// declare template engine and path
-app.set('view engine', 'ejs');
-app.set('views', 'views');
-
-// for parsing application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
-
-// import modules
-const render = require('./modules/routeHandler.js');
-const questions = require('./modules/questions.js');
-const api = require('./modules/api.js');
-
-const currentQuestions = render.gameQuestions;
-
-// routes
-app.get('/', render.home);
+app
+  .set('view engine', 'ejs')
+  .set('views', 'views')
+  .use(express.static('public'))
+  .use(express.urlencoded({ extended: true }))
+  .get('/', render.home);
 
 const server = app.listen(port, () =>
   console.log(`App listening on port ${port}`)
@@ -72,16 +59,14 @@ io.on('connection', function (socket) {
   socket.on('game start', function () {
     questionIndex = 0;
     io.sockets.emit('game start', { listClients });
-    console.log('PLAYERS:');
-    console.log(listClients);
+    console.log(`PLAYERS: ${listClients}`);
     render.makeLeaderboard(listClients);
   });
 
-  // https://pupli.net/2019/06/get-a-list-of-connected-clients-in-socket-io/
   // listen on chat message
+  // CHAT MESSSAGE WERKT NIET MEER
   socket.on('chat message', (data) => {
     // broadcast new message
-    console.log(userID);
     io.sockets.emit('chat message', {
       message: data.message,
       username: socket.username,
@@ -90,22 +75,18 @@ io.on('connection', function (socket) {
 
   // listen on give answer
   socket.on('give answer', async function (data) {
-    console.log('QUESTIONINDEX');
-    console.log(questionIndex);
-    const obj = {};
+    const obj = {},
+      currentQuestion = currentQuestions[questionIndex].question,
+      cityA = currentQuestion.city1.city,
+      cityB = currentQuestion.city2.city,
+      // tempA = await api.getWeather(cityA),
+      // tempB = await api.getWeather(cityB);
+      tempA = 15,
+      tempB = 15;
     obj.userID = userID;
     obj.answer = data.answer;
     usersAnswers.push(obj);
     console.log(usersAnswers);
-    const currentQuestion = currentQuestions[questionIndex].question;
-    const cityA = currentQuestion.city1.city;
-    const cityB = currentQuestion.city2.city;
-    // const tempA = await api.getWeather(cityA);
-    // const tempB = await api.getWeather(cityB);
-    const tempA = 15;
-    const tempB = 15;
-    // console.log(tempA);
-    // console.log(tempB);
     // broadcast temperatures
     io.sockets.emit('send temp', {
       tempA: tempA,
@@ -114,9 +95,6 @@ io.on('connection', function (socket) {
     const rightAnswer = checkHighestTemp(tempA, tempB);
     checkAnswers(rightAnswer);
     writeNewScores(userID);
-
-    // usersAnswers = [];
-    // addAmount = [];
   });
 
   socket.on('disconnect', function () {
@@ -152,10 +130,12 @@ function checkHighestTemp(_tempA, _tempB) {
   } else if (_tempA == _tempB) {
     console.log('draw');
     return 3;
+  } else {
+    console.log('Error: checkHighestTemp() in index.js gave no output.');
   }
 }
+
 function checkAnswers(rightAnswer) {
-  // { userID: 'MIPLs5TkJSYvFPbOAAAY', addToScore: 1 }
   if (usersAnswers.length == amountOfPlayers) {
     usersAnswers.forEach(function (user) {
       if (
@@ -163,28 +143,28 @@ function checkAnswers(rightAnswer) {
         (rightAnswer === 3 && user.answer == 1) ||
         (rightAnswer === 3 && user.answer == 2)
       ) {
-        console.log('goed');
-        const obj = {};
-        obj.userID = user.userID;
-        obj.addToScore = 1;
-        // usersAnswers[0].userID score: + 1
-        addAmount.push(obj);
+        pushAddAmount(user, 1);
       } else {
-        console.log('fout');
-        const obj = {};
-        obj.userID = user.userID;
-        obj.addToScore = 0;
-        addAmount.push(obj);
+        pushAddAmount(user, 0);
       }
     });
+  } else {
+    console.log(
+      'Error: in checkAnswers() in index.js, amount of answers received is not equal to the amount of players playing.'
+    );
   }
 }
+function pushAddAmount(user, n) {
+  const obj = {};
+  obj.userID = user.userID;
+  obj.addToScore = n;
+  addAmount.push(obj);
+}
 function writeNewScores(id) {
-  console.log(id);
   // to do: sort from high to low
   const _game = questions.getGame();
   console.log(addAmount);
-  if (addAmount.length == amountOfPlayers && questionIndex < 10) {
+  if (addAmount.length == amountOfPlayers && questionIndex < 9) {
     console.log(_game);
     addAmount.forEach(function (item) {
       _game.forEach(function (_item) {
@@ -193,29 +173,24 @@ function writeNewScores(id) {
         }
       });
     });
-    console.log(_game);
     _game.sort(function (a, b) {
       const _a = a.score;
       const _b = b.score;
       return (_a - _b) * -1;
     });
     const dataString = JSON.stringify(_game);
-    // console.log('GAAT HET HIER FOUT?');
-    console.log(dataString);
     // write json
-    fs.writeFile(`./data/games/game-${n}.json`, dataString, function (err) {
-      if (err) throw err;
-      console.log('File is updated successfully.');
-      console.log('ID???');
-      console.log(id);
-      updateLeaderboard(id);
-    });
-
+    storage.write(`./data/games/game-${n}.json`, dataString);
+    updateLeaderboard(id);
     const nextQuestion = currentQuestions[questionIndex + 1].question;
     io.sockets.emit('next question', { nextQuestion });
     questionIndex++;
     addAmount = [];
     usersAnswers = [];
+  } else {
+    console.log(
+      'Error: in writeNewScores() in index.js length of addAmount is not equal to the amount of players or question index is not under 9.'
+    );
   }
 }
 function updateLeaderboard(userID) {
