@@ -9,7 +9,7 @@ Stukje introductie tekst over de course etc.
 ## ✏️ Concept
 
 Mijn concept is een spel die gebruik maakt van real time voetbal wedstrijd standen. Gebruikers kunnen tegen elkaar spelen. Ze kunnen aanklikken welk team het eerstvolgende doelpunt gaat maken. Als de gebruiker het goed heeft verdiend hij of zij een punt. Hiermee kan men live interactief gokken op wedstrijden.
-\
+<br/>
 Omdat de meeste competities momenteel stil liggen vanwege Covid-19, focus ik mij op de competities van landen als Belarus, die nog wel spelen.
 
 - [ ] Concept tekst beter omschrijven
@@ -56,7 +56,7 @@ npm start
 
 ### API can't find city
 
-> ❗️ This isn't updated anymore. When the API can't find a city, it will be automaticly added to `api-city-bugs.txt`.
+> ❗️ This isn't updated anymore. When the API can't find a city, it will be automaticly added to `api-city-bugs.txt` and will return a tempature of 0 degrees.
 
 - Nursultan
 
@@ -103,7 +103,7 @@ npm start
 ### API can't find a city
 
 - `Error: in getWeather() in api.js kon de api ${city} niet vinden.`
-- This city will automaticly be added to `api-city-bugs.txt`
+- This city will automaticly be added to `api-city-bugs.txt` and returns a tempature of 0 degrees.
 
 ### Other
 
@@ -125,7 +125,7 @@ npm start
 
 ### Dataset Used
 
-[Country-capital dataset made by Samayo](https://data.world/samayo/country-capital-city) \
+[Country-capital dataset made by Samayo](https://data.world/samayo/country-capital-city) <br/>
 
 **Changes made:**
 
@@ -146,7 +146,7 @@ npm start
 
 ## 📚 Sources
 
-📖 Artikel / Documentation | ⚙️ Code | 📹 Video | 🛠 Tools
+📖 Artikel / Documentation **|** ⚙️ Code **|** 📹 Video **|** 🛠 Tools
 
 - 📖 [Socket IO - Getting Started](https://socket.io/get-started/chat/)
 - 📖 [Build a Simple Chat App With NodeJS and SocketIO - Medium - Noufel Gouirhate](https://medium.com/@noufel.gouirhate/build-a-simple-chat-app-with-node-js-and-socket-io-ea716c093088)
@@ -175,7 +175,7 @@ npm start
     - [ ] Laat zien (usernames) wie allemaal in de lobby zitten
     - [ ] Voeg welkomsmessage toe als men zijn username invoert
   - [ ] Game
-    - [x] Nieuwe vraag renderen
+    - [x] ~~Nieuwe vraag renderen~~
     - [ ] Add country
     - [ ] Add current time (of city)
     - [ ] Add possibility to filter on continent
@@ -196,11 +196,7 @@ npm start
       - [ ] Add minifying
         - [ ] CSS
         - [ ] ES
-  - [ ] README
-    - [ ] Concept aanpassen
-    - [ ] Data Life Cycle diagram aanpassen
-    - [ ] Api sectie aanpassen
-    - [ ] Custom events toevoegen
-
-❤️ Thanks for reading ❤️<br/>
-❤️ Marten de Bruijn ❤️
+  - [ ] README - [ ] Concept aanpassen - [ ] Data Life Cycle diagram aanpassen - [ ] Api sectie aanpassen - [ ] Custom events toevoegen
+        <br/>
+        ❤️ Thanks for reading ❤️<br/>
+        ❤️ Marten de Bruijn ❤️
