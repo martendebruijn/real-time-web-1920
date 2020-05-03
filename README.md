@@ -157,6 +157,7 @@ npm start
 ## ✅ To do list
 
 - [ ] Real Time Web
+
   - [ ] Chat functie
     - [x] ~~Basis~~
     - [ ] Als er overflow is → automatisch naar het laatste bericht scrollen (/focus)
@@ -197,11 +198,11 @@ npm start
         - [ ] CSS
         - [ ] ES
   - [ ] README
+
     - [ ] Concept aanpassen
     - [ ] Data Life Cycle diagram aanpassen
     - [ ] Api sectie aanpassen
     - [ ] Custom events toevoegen
 
-<br/>
           ❤️ Thanks for reading ❤️<br/>
           ❤️ Marten de Bruijn ❤️
