@@ -147,6 +147,7 @@ npm start
     - [ ] Add possibility to filter on continent
     - [ ] Add final scores
     - [ ] Add 'Next round in ...' timer
+    - [ ] Zorg ervoor dat er niet meer geklikt kan worden als de antwoorden worden gegeven
   - [ ] Code opschonen
     - [ ] Code meer splitsen in functies
     - [ ] Code meer splitsen in modules
