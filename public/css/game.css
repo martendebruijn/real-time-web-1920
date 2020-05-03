@@ -1,4 +1,4 @@
-main {
+#game {
   display: grid;
   grid-template-columns: 1.5fr 2fr 2fr 1.5fr;
   grid-template-rows: 1fr;
@@ -61,11 +61,11 @@ main {
 form {
   background: #000;
   padding: 3px;
-  position: fixed;
   width: 100%;
 }
 #sendMessage {
   bottom: calc(3em + 8px);
+  position: fixed;
 }
 #messages {
   list-style-type: none;
@@ -86,4 +86,7 @@ form {
 .city-left.active,
 .city-right.active {
   background: lightskyblue;
+}
+.d-none {
+  display: none !important;
 }

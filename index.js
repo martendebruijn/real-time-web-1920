@@ -28,7 +28,7 @@ const currentQuestions = render.gameQuestions;
 
 // routes
 app.get('/', render.home);
-app.get('/game', render.game);
+// app.get('/game', render.game);
 
 const server = app.listen(port, () =>
   console.log(`App listening on port ${port}`)
@@ -45,6 +45,9 @@ io.on('connection', function (socket) {
 
   const userID = socket.id;
 
+  // default username
+  socket.username = 'Anonymous';
+
   // broadcast amount of players
   broadcastPlayerAmount();
   updateClientList();
@@ -55,10 +58,10 @@ io.on('connection', function (socket) {
   });
 
   socket.on('game start', function () {
-    const destination = '/game';
-    io.sockets.emit('game start', destination);
+    io.sockets.emit('game start', { listClients });
     console.log('PLAYERS:');
     console.log(listClients);
+    render.makeLeaderboard(listClients);
   });
 
   // https://pupli.net/2019/06/get-a-list-of-connected-clients-in-socket-io/
@@ -96,7 +99,7 @@ io.on('connection', function (socket) {
     });
     const rightAnswer = checkHighestTemp(tempA, tempB);
     checkAnswers(rightAnswer);
-    writeNewScores();
+    writeNewScores(userID);
     // Todo: send new scores to dashboard
     // updateLeaderboard();
   });
@@ -122,7 +125,6 @@ function updateClientList() {
     listClients = clients;
     console.log('hallo');
     console.log(listClients);
-    render.makeLeaderboard(listClients);
   });
 }
 function checkHighestTemp(_tempA, _tempB) {
@@ -161,9 +163,11 @@ function checkAnswers(rightAnswer) {
     }
   });
 }
-function writeNewScores() {
+function writeNewScores(id) {
+  console.log(id);
   // to do: sort from high to low
   const _game = questions.getGame();
+  console.log('HIER ERGENS GAAT HET FOUT');
   console.log(addAmount);
   if (addAmount.length == amountOfPlayers) {
     console.log(_game);
@@ -185,15 +189,11 @@ function writeNewScores() {
     fs.writeFile(`./data/games/game-${n}.json`, dataString, function (err) {
       if (err) throw err;
       console.log('File is updated successfully.');
-      updateLeaderboard();
+      updateLeaderboard(id);
     });
   }
 }
-function updateLeaderboard() {
+function updateLeaderboard(userID) {
   const standings = questions.getGame();
-  console.log('STANDINGS');
-  console.log(standings);
-  io.sockets.emit('update leaderboard', {
-    _test: standings,
-  });
+  io.sockets.emit('update leaderboard', { standings, userID });
 }

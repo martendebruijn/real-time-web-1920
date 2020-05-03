@@ -1,32 +1,3 @@
 <%- include('./partials/head.ejs') %>
-<div class="leaderboard">
-    <p>Leaderboard</p>
-    <% players.map(function(item){%>
-        <span><%= item.userID %></span><span style="margin-left: 1em"><%= item.score %></span>
-        <%  }) %>
-</div>
 
-<div class="city-box city-left">
-    <div class="flag">
-    <img src="<%= imgOne %>" onerror="this.onerror=null;this.src='./img/Amsterdam.svg';" />
-    <%#  %>
-</div>
-    <h2><%= cityOne %></h2>
-    <h2 id="tempA">Temperatuur</h2>
-</div>
-<div id="countdown"><p>30</p></div>
-<div class="vs-circle"><p>VS</p></div>
-<div class="city-box city-right">
-    <div class="flag">
-        <img src="<%= imgTwo %>" onerror="this.onerror=null;this.src='./img/Amsterdam.svg';" />
-</div>
-    <h2><%= cityTwo %></h2>
-    <h2 id="tempB">Temperatuur</h2>
-</div>
-<div class="chat">
-    <div id="messages"></div>
-    <form id="sendMessage" action="">
-        <input id="m" autocomplete="off" /><button>Send</button>
-      </form>
-</div>
 <%- include('./partials/footer.ejs') %>

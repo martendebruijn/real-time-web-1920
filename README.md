@@ -1,6 +1,6 @@
 # Real-Time Web @cmda-minor-web · 2019-2020
 
-**Week 1 code zie [branch week-1](#)**
+**Week 1 code zie [branch week-1](https://github.com/martendebruijn/real-time-web-1920/tree/week-1)**
 
 ## Introductie
 
@@ -81,7 +81,7 @@ npm start
 
 ## Whishlist
 
-- Voeg toe dat de laatst opgehaalde temperatuur bij de dataset wordt toegevoegd voor als de app over het request limiet heen is.
+- Voeg toe dat de laatst opgehaalde temperatuur bij de dataset wordt toegevoegd voor als de app over het request limiet van de api heen is.
 - Ervoor zorgen dat wanneer de api een stad niet kan vinden, de stad automatisch wordt toegevoegd aan een bugs file.
 - Ervoor zorgen dat als een stad niet gevonden wordt, er een api call wordt gedaan met het land i.p.v. de stad.
 - Ervoor zorgen dat als een land niet gevonden kan worden (verkeerd gespeld/too many request) een andere stad ervoor in de plaats komt.
@@ -109,7 +109,7 @@ npm start
 - Changed the capital city of Kazakhstan from `Astana` to `Nur-Sultan` since [it's renamed in 2019](https://simple.wikipedia.org/wiki/Nur-Sultan).
 - Changed the capital city of Myanmar from `Rangoon` to `Naypyidaw` since it's [the new capital of Myanmar](https://simple.wikipedia.org/wiki/Naypyidaw).
 - Removed `Yugoslavia` since it is [a former country](https://en.wikipedia.org/wiki/Yugoslavia).
-- Added img links. **Haven't done this one yet** -> add a placeholder img for when the img url is broken
+- Added images of the countries flag.
 
 ## Sources
 
@@ -134,17 +134,18 @@ npm start
   - [x] ~~Antwoorden controleren~~
   - [x] ~~Score systeem~~
   - [ ] Leaderboard updaten
-    - [ ] Scores updaten
+    - [x] ~~Scores updaten~~
+    - [ ] UserID's niet mee sturen naar de client -> veranderen naar usernames !!!
     - [ ] Nicknames weergeven in leaderboard
     - [ ] Toevoeging geven als er dezelfde nicknames zijn
-  - [ ] GAME
+  - [ ] Game
     - [ ] Nieuwe vraag renderen
     - [ ] Add country
     - [ ] Add current time
     - [ ] Add possibility to filter on continent
   - [ ] Code opschonen
-    - [ ] Code splitsen in functies
-    - [ ] Code splitsen in modules
+    - [ ] Code meer splitsen in functies
+    - [ ] Code meer splitsen in modules
   - [ ] Styling
     - [ ] Leaderboard styling toevoegen
     - [ ] Countdown animatie toevoegen

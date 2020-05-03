@@ -17,7 +17,7 @@
   { "continent": "asia", "imgURL": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg", "country": "Bangladesh", "city": "Dhaka" },
   { "continent": "n-america", "imgURL": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Barbados.svg", "country": "Barbados", "city": "Bridgetown" },
   { "continent": "europe", "imgURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/1280px-Flag_of_Belarus.svg.png", "country": "Belarus", "city": "Minsk" },
-  { "continent": "europe", "imgURL": "https://www.graphicmaps.com/r/w1047/images/flags/be-flag.jpg", "country": "Belgium", "city": "Bruxelles [Brussel]" },
+  { "continent": "europe", "imgURL": "https://www.graphicmaps.com/r/w1047/images/flags/be-flag.jpg", "country": "Belgium", "city": "Bruxelles" },
   { "continent": "n-america", "imgURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Flag_of_Belize.svg/1200px-Flag_of_Belize.svg.png", "country": "Belize", "city": "Belmopan" },
   { "continent": "africa", "imgURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_Benin.svg/1280px-Flag_of_Benin.svg.png", "country": "Benin", "city": "Porto-Novo" },
   { "continent": "n-america", "imgURL": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bermuda.svg", "country": "Bermuda", "city": "Hamilton" },

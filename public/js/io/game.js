@@ -7,8 +7,7 @@ const cityRight = document.querySelector('.city-right');
 const countdown = document.getElementById('countdown');
 const leftTemp = document.getElementById('tempA');
 const rightTemp = document.getElementById('tempB');
-
-// getUserID();
+const leaderboard = document.getElementById('js-leaderboard');
 
 // // emit typing
 // messageForm.addEventListener('keypress', function (e) {
@@ -38,14 +37,6 @@ function getUsername() {
   }
   return username;
 }
-// function getUserID() {
-//   // different tabs got the same local storage thus the same userID
-//   let userID = socket.id;
-//   if (!userID) {
-//     window.location.href = '/';
-//   }
-//   return userID;
-// }
 
 cityLeft.addEventListener('click', function (e) {
   if (checkActive(cityRight)) {
@@ -79,7 +70,9 @@ const timer = setInterval(function () {
 
     // update leaderboard
     socket.on('update leaderboard', function (data) {
-      console.log(data);
+      console.log(data.standings[0].userID);
+      // const el = document.getElementById(data.standings[0].userID);
+      // console.log(el);
       // _test = [{score: 1, userID: ""}]
     });
 

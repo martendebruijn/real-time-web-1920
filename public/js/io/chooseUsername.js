@@ -3,6 +3,8 @@ const usernameForm = document.getElementById('changeUsername');
 const usernameInput = document.getElementById('u');
 const playerCount = document.getElementById('playerCount');
 const playEl = document.getElementById('play');
+const home = document.getElementById('change_username');
+const rGame = document.getElementById('game');
 
 socket.on('aantal spelers', (data) => {
   playerCount.innerText = `${data.spelers} spelers`;
@@ -25,6 +27,7 @@ playEl.addEventListener('click', function (e) {
 });
 
 // listen to game start event
-socket.on('game start', function (destination) {
-  window.location.href = destination;
+socket.on('game start', function () {
+  home.classList.toggle('d-none');
+  rGame.classList.toggle('d-none');
 });

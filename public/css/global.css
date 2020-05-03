@@ -52,6 +52,8 @@ form button,
   border: none;
   padding: 10px;
 }
-#play {
-  float: right;
+#change_username,
+#game {
+  width: 100%;
+  height: 100%;
 }
