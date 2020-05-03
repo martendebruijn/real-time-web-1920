@@ -3,11 +3,13 @@ const express = require('express'),
   port = process.env.PORT || 3000,
   app = express(),
   fs = require('fs'),
-  currentQuestions = render.gameQuestions,
   render = require('./modules/routeHandler.js'),
   questions = require('./modules/questions.js'),
   api = require('./modules/api.js'),
   storage = require('./modules/storage.js');
+
+const currentQuestions = render.gameQuestions;
+
 let n = 1,
   amountOfPlayers = 0, // kan ook met: io.engine.clientsCount
   usersAnswers = [],
@@ -15,6 +17,9 @@ let n = 1,
   questionIndex = 0;
 var listClients;
 // let users = [];
+
+// reset game json file -> later voor ieder game een uniek id genereren en bestand aanmaken en als het spel afgelopen is dit bestand weer verwijderen!
+storage.write(`./data/games/game-${n}.json`, '[]');
 
 app
   .set('view engine', 'ejs')
@@ -79,10 +84,12 @@ io.on('connection', function (socket) {
       currentQuestion = currentQuestions[questionIndex].question,
       cityA = currentQuestion.city1.city,
       cityB = currentQuestion.city2.city,
-      // tempA = await api.getWeather(cityA),
-      // tempB = await api.getWeather(cityB);
-      tempA = 15,
-      tempB = 15;
+      // !!! uncomment tempA and tempB below when going in production !!!
+      tempA = await api.getWeather(cityA),
+      tempB = await api.getWeather(cityB);
+    // !!! comment tempA and tempB below out when going in production !!!
+    // tempA = 15,
+    // tempB = 15;
     obj.userID = userID;
     obj.answer = data.answer;
     usersAnswers.push(obj);

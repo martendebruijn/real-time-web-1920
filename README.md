@@ -32,6 +32,7 @@ npm start
 
 ## Table of Contents
 
+- [⚠️ Known Issues ⚠️](#⚠️-Known-Issues-⚠️)
 - [API](#Api)
 - [Tools Used](#Tools-used)
 - [Data Life Cycle Diagram](#data-life-cycle-diagram)
@@ -42,6 +43,20 @@ npm start
   - [Dataset Used](#Dataset-Used)
 - [Sources](#Sources)
 - [Todo list](#Todo-list)
+
+## ⚠️ Known Issues ⚠️
+
+- Asunción of/en Cayenne kan niet gevonden worden door de api
+- Leaderboard wordt bij de 1e vraag niet geupdate
+- San Marino of/en Bogotá kan niet gevonden worden door de api
+- Chat messages worden niet meer weergegeven
+
+### Steden die niet gevonden worden
+
+- Asunción of/en Cayenne
+- San Marino of/en Bogotá
+- Cockburn Town of/en Nursultan
+- Asunción of/en Vaduz
 
 ## API
 
@@ -140,6 +155,9 @@ npm start
     - [ ] UserID's niet mee sturen naar de client -> veranderen naar usernames !!!
     - [ ] Nicknames weergeven in leaderboard
     - [ ] Toevoeging geven als er dezelfde nicknames zijn
+  - [ ] Beginscherm
+    - [ ] Laat zien (usernames) wie allemaal in de lobby zitten
+    - [ ] Voeg welkomsmessage toe als men zijn username invoert
   - [ ] Game
     - [x] Nieuwe vraag renderen
     - [ ] Add country
@@ -148,15 +166,20 @@ npm start
     - [ ] Add final scores
     - [ ] Add 'Next round in ...' timer
     - [ ] Zorg ervoor dat er niet meer geklikt kan worden als de antwoorden worden gegeven
-  - [ ] Code opschonen
-    - [ ] Code meer splitsen in functies
-    - [ ] Code meer splitsen in modules
+  - [x] ~~Code opschonen~~
+    - [x] ~~Code meer splitsen in functies~~
+    - [x] ~~Code meer splitsen in modules~~
   - [ ] Styling
     - [ ] Leaderboard styling toevoegen
     - [ ] Countdown animatie toevoegen
     - [ ] Feedback correcte antwoord geven
     - [ ] Responsive maken
     - [ ] Make placeholder for when the image can't be find
+  - [ ] Performance
+    - [ ] Add Gulp
+      - [ ] Add minifying
+        - [ ] CSS
+        - [ ] ES
   - [ ] README
     - [ ] Concept aanpassen
     - [ ] Data Life Cycle diagram aanpassen

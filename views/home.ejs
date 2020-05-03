@@ -3,9 +3,19 @@
 <form id="changeUsername" action="">
     <input id="u" autocomplete="off" /><button>Set username</button>
 </form>
+<form id="chooseMap">
+    <label><input type="checkbox" value="world" disabled checked>Wereld</label>
+    <label><input type="checkbox" value="africa" disabled>Afrika</label>
+    <label><input type="checkbox" value="asia" disabled>Azië</label>
+    <label><input type="checkbox" value="europe" disabled>Europa</label>
+    <label><input type="checkbox" value="n-america" disabled>Noord-Amerika</label>
+    <label><input type="checkbox" value="s-america" disabled>Zuid-Amerika</label>
+    <label><input type="checkbox" value="oceanie" disabled>Oceanië</label>
+</form>
 <p id="playerCount">0 spelers</p>
 <button id="play">Play</button>
 </div>
+<!-- GAME -->
 <div id="game" class="d-none">
     <div class="leaderboard">
         <p>Leaderboard</p>
@@ -20,7 +30,7 @@
         <h2 id="cityaname"><%= cityOne %></h2>
         <h2 id="tempA">Temperatuur</h2>
     </div>
-    <div id="countdown center"><p>30</p></div>
+    <div id="countdown" class="center"><p>30</p></div>
     <div class="vs-circle center"><p>VS</p></div>
     <div class="city-box city-right center">
         <div class="flag">
