@@ -158,7 +158,7 @@ Als de API een bepaalde stad niet kan vinden wordt de volgende error gelogd bij 
 
 - `Error: in getWeather() in api.js kon de api ${city} niet vinden.`
 - This city will automaticly be added to `api-city-bugs.txt` and returns a tempature of 0 degrees.
-  ![Screenshot of console with the error]()
+  ![Screenshot of console with the error](/img/screenshot-console.png)
 
 ### Other
 
