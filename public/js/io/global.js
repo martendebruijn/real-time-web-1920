@@ -146,7 +146,7 @@ cityRight.addEventListener('click', function (e) {
 // element.setTimeout(function, milliseconds)
 function timerFunction() {
   console.log(questionIndex);
-  let t = 5;
+  let t = 15;
   const timer = setInterval(function () {
     if (t < 0) {
       console.log('submit and show answers');
