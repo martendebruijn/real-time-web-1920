@@ -82,9 +82,9 @@ messageForm.addEventListener('submit', function (e) {
 
 // listen on new message
 socket.on('chat message', (data) => {
-  const msgEl = document.createElement('p'),
-    username = getUsername();
-  msgEl.innerText = `${username}: ${data.message}`;
+  console.log(data);
+  const msgEl = document.createElement('p');
+  msgEl.innerText = `${data.username}: ${data.message}`;
   messages.append(msgEl);
 });
 

@@ -19,7 +19,7 @@ async function getWeather(city) {
     console.log(
       `Error: in getWeather() in api.js kon de api ${city} niet vinden.`
     );
-    storage.addToFile('../data/api-city-bugs.txt');
+    storage.addToFile('./data/api-city-bugs.txt');
   }
   return temp;
 }

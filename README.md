@@ -2,6 +2,8 @@
 
 **Week 1 code zie [branch week-1](https://github.com/martendebruijn/real-time-web-1920/tree/week-1)**
 
+![Screenshot van de applicatie](/img/screenshot-real-time-web.png)
+
 ## 👾 Introductie
 
 During this course you will learn how to build a meaningful real-time application. You will learn techniques to setup an open connection between the client and the server. This will enable you to send data in real-time both ways, at the same time.
@@ -75,8 +77,7 @@ tempB = await api.getWeather(cityB);
 
 ## ⚠️ Known Issues
 
-- Leaderboard wordt bij de 1e vraag niet geupdate
-- Chat messages worden niet meer weergegeven
+- Leaderboard wordt pas geupdate een vraag na het punt verdiend is.
 
 ## 🐒 API
 
