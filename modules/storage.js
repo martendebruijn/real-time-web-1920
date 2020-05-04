@@ -15,7 +15,9 @@ function write(url, data) {
 function read(url) {
   const readFile = fs.readFileSync(url);
   // console.dir(JSON.parse(readFile), { maxArrayLength: null });
-  return JSON.parse(readFile);
+  const read_file = JSON.parse(readFile);
+
+  return read_file;
 }
 function addToFile(url, data) {
   fs.appendFile(url, data, function (err) {
