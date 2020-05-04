@@ -16,6 +16,8 @@ Gebruikers in een game kunnen ook met elkaar chatten. Aan de rechterkant van het
 
 \*\*Voor als nog worden de userID's weergegeven i.p.v. de usernames. Dit wil ik veranderen zodat de userID's niet naar de client gestuurd worden.
 
+![Wireframe Sketch](/img/wireframe-schets.jpeg)
+
 ## 🕹 Live Demo
 
 [Bekijk hier een live demo 😃](#)
@@ -99,6 +101,8 @@ De documentatie kan men [hier](https://openweathermap.org/api) vinden.
 
 ## 📈 Data Life Cycle Diagram
 
+![Data Life Cycle Diagram](/img/diagram-v1.jpg)
+
 ## ⚙️ NPM Scripts
 
 - `npm start` = `node index.js` **|** start de applicatie
@@ -138,7 +142,7 @@ Als de API een bepaalde stad niet kan vinden wordt de volgende error gelogd bij 
 - Voeg toe dat de laatst opgehaalde temperatuur bij de dataset wordt toegevoegd voor als de app over het request limiet van de api heen is.
 - Ervoor zorgen dat wanneer de api een stad niet kan vinden, de stad automatisch wordt toegevoegd aan een bugs file.
 - Ervoor zorgen dat als een stad niet gevonden wordt, er een api call wordt gedaan met het land i.p.v. de stad.
-- Ervoor zorgen dat als een land niet gevonden kan worden (verkeerd gespeld/too many request) een andere stad ervoor in de plaats komt.
+- ~~Ervoor zorgen dat als een land niet gevonden kan worden (verkeerd gespeld/too many request) een andere stad ervoor in de plaats komt.~~
 - Naast het weergeven van de stad en vlag, wil ik ook desbetreffend land weergeven én de huidige tijd in dat land. (Als het ergens nacht is, is het natuurlijk eerder kouder dan in een stad waar het midden op de dag is).
 
 ## 🙌 Credits
@@ -220,12 +224,11 @@ Als de API een bepaalde stad niet kan vinden wordt de volgende error gelogd bij 
       - [ ] Add minifying
         - [ ] CSS
         - [ ] ES
-  - [ ] README
-
-    - [ ] Concept aanpassen
-    - [ ] Data Life Cycle diagram aanpassen
-    - [ ] Api sectie aanpassen
-    - [ ] Custom events toevoegen
+  - [x] ~~README~~
+    - [x] ~~Concept aanpassen~~
+    - [x] ~~Data Life Cycle diagram aanpassen~~
+    - [x] ~~Api sectie aanpassen~~
+    - [x] ~~Custom events toevoegen~~
 
 ❤️ Thanks for reading ❤️<br/>
 ❤️ Marten de Bruijn ❤️
