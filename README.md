@@ -78,6 +78,7 @@ tempB = await api.getWeather(cityB);
 ## ⚠️ Known Issues
 
 - Leaderboard wordt pas geupdate een vraag na het punt verdiend is.
+- Het lijkt erop dat als beide steden niet gevonden kunnen worden door de API de app crashed.
 
 ## 🐒 API
 
@@ -131,6 +132,7 @@ Als de API een bepaalde stad niet kan vinden wordt de volgende error gelogd bij 
 
 - `Error: in getWeather() in api.js kon de api ${city} niet vinden.`
 - This city will automaticly be added to `api-city-bugs.txt` and returns a tempature of 0 degrees.
+  ![Screenshot of console with the error]()
 
 ### Other
 

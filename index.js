@@ -66,6 +66,7 @@ io.on('connection', function (socket) {
     io.sockets.emit('game start', { listClients });
     console.log(`PLAYERS: ${listClients}`);
     render.makeLeaderboard(listClients);
+    usersAnswers = [];
   });
 
   // listen on chat message
