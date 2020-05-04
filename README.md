@@ -77,8 +77,34 @@ tempB = await api.getWeather(cityB);
 
 ## ⚠️ Known Issues
 
-- Leaderboard wordt pas geupdate een vraag na het punt verdiend is.
-- Het lijkt erop dat als beide steden niet gevonden kunnen worden door de API de app crashed.
+- Leaderboard wordt pas geupdate een vraag na het punt verdiend is (LOKAAL)
+- Leaderboard (update) werkt lokaal maar wanneer deployed op Heroku niet.
+  Logs:
+
+```bash
+2020-05-04T17:17:31: at JSON.parse (<anonymous>)
+2020-05-04T17:17:31: at Object.read (/app/modules/storage.js:18:26)
+2020-05-04T17:17:31: at Object.getGame (/app/modules/questions.js:49:28)
+2020-05-04T17:17:31: at updateLeaderboard (/app/index.js:206:31)
+2020-05-04T17:17:31: at writeNewScores (/app/index.js:193:5)
+2020-05-04T17:17:31: at Socket.<anonymous> (/app/index.js:106:5)
+2020-05-04T17:17:31: at processTicksAndRejections (internal/process/task_queues.js:97:5)
+2020-05-04T17:17:31: UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+2020-05-04T17:17:31: [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+```
+
+Om deze reden heb ik het leaderboard momenteel uitgezet:
+
+```js
+// writeNewScores(userID);
+const nextQuestion = currentQuestions[questionIndex + 1].question;
+io.sockets.emit('next question', { nextQuestion });
+questionIndex++;
+addAmount = [];
+usersAnswers = [];
+```
+
+De regels onder `writeNewScores()` moeten verwijderd worden als dit issue is opgelost.
 
 ## 🐒 API
 

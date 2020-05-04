@@ -103,7 +103,12 @@ io.on('connection', function (socket) {
     });
     const rightAnswer = checkHighestTemp(tempA, tempB);
     checkAnswers(rightAnswer);
-    writeNewScores(userID);
+    // writeNewScores(userID);
+    const nextQuestion = currentQuestions[questionIndex + 1].question;
+    io.sockets.emit('next question', { nextQuestion });
+    questionIndex++;
+    addAmount = [];
+    usersAnswers = [];
   });
 
   socket.on('disconnect', function () {
