@@ -46,7 +46,8 @@ In `give answer` in `index.js`: zet de api calls in comments en gebruik een vast
 
 ```js
 // !!! uncomment tempA and tempB below when going in production !!!
-(tempA = await api.getWeather(cityA)), (tempB = await api.getWeather(cityB));
+tempA = await api.getWeather(cityA);
+tempB = await api.getWeather(cityB);
 // !!! comment tempA and tempB below out when going in production !!!
 // tempA = 15,
 // tempB = 15;
