@@ -78,7 +78,8 @@ tempB = await api.getWeather(cityB);
 ## ⚠️ Known Issues
 
 - Leaderboard wordt pas geupdate een vraag na het punt verdiend is (LOKAAL)
-- Leaderboard (update) werkt lokaal maar wanneer deployed op Heroku niet.
+<details>
+  <summary>Leaderboard (update) werkt lokaal maar wanneer deployed op Heroku niet.</summary>
   Logs:
 
 ```bash
@@ -105,6 +106,8 @@ usersAnswers = [];
 ```
 
 De regels onder `writeNewScores()` moeten verwijderd worden als dit issue is opgelost.
+
+</details>
 
 ## 🐒 API
 
