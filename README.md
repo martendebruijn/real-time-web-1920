@@ -1,5 +1,7 @@
 # Real-Time Web @cmda-minor-web · 2019-2020
 
+> Voor de aanvulling zie [deze repo](https://github.com/martendebruijn/real-time-web-her). 
+
 **Week 1 code zie [branch week-1](https://github.com/martendebruijn/real-time-web-1920/tree/week-1)**
 
 ![Screenshot van de applicatie](/img/screenshot-real-time-web.png)
@@ -36,7 +38,7 @@ npm install
 
 ### 2. Request an API key
 
-Men kan [hier een key aanvragen](<https://openweathermap.org/price](https://openweathermap.org/price)>) voor de API van Open Weather. Als u een key hebt, zorg dat deze wordt ingevuld voor de `key` variabele in `api.js`.
+Men kan [hier een key aanvragen](https://openweathermap.org/) voor de API van Open Weather. Als u een key hebt, zorg dat deze wordt ingevuld voor de `key` variabele in `api.js`.
 
 ### 3. Start the app
 
@@ -59,55 +61,29 @@ tempB = await api.getWeather(cityB);
 
 ## 📍 Table of Contents
 
-- [⚠️ Known Issues](#%EF%B8%8F-known-issues)
-  - [API can’t find city](#api-can't-find-city)
-- [🐒API](#-Api)
-- [🛠 Tools Used](#-Tools-used)
-- [📈 Data Life Cycle Diagram](#-data-life-cycle-diagram)
-- [⚙️ NPM Scripts](#%EF%B8%8F-npm-scripts)
-- [🧦 Socket IO Events](#%F0%9F%A7%A6-Socket-IO-Events)
-- [❌ Errors](#%E2%9D%8C-Errors)
-  - [API can’t find a city](#API-can't-find-a-city)
-  - [Other](#Other)
-- [✨ Whishlist](#-Whishlist)
-- [🙌 Credits](#-Credits)
-  - [Dataset Used](#Dataset-Used)
-- [📚 Sources](#-Sources)
-- [✅ Todo list](#-Todo-list)
-
-## ⚠️ Known Issues
-
-- Leaderboard wordt pas geupdate een vraag na het punt verdiend is (LOKAAL)
-<details>
-  <summary>Leaderboard (update) werkt lokaal maar wanneer deployed op Heroku niet.</summary>
-  Logs:
-
-```bash
-2020-05-04T17:17:31: at JSON.parse (<anonymous>)
-2020-05-04T17:17:31: at Object.read (/app/modules/storage.js:18:26)
-2020-05-04T17:17:31: at Object.getGame (/app/modules/questions.js:49:28)
-2020-05-04T17:17:31: at updateLeaderboard (/app/index.js:206:31)
-2020-05-04T17:17:31: at writeNewScores (/app/index.js:193:5)
-2020-05-04T17:17:31: at Socket.<anonymous> (/app/index.js:106:5)
-2020-05-04T17:17:31: at processTicksAndRejections (internal/process/task_queues.js:97:5)
-2020-05-04T17:17:31: UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
-2020-05-04T17:17:31: [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
-```
-
-Om deze reden heb ik het leaderboard momenteel uitgezet:
-
-```js
-// writeNewScores(userID);
-const nextQuestion = currentQuestions[questionIndex + 1].question;
-io.sockets.emit('next question', { nextQuestion });
-questionIndex++;
-addAmount = [];
-usersAnswers = [];
-```
-
-De regels onder `writeNewScores()` moeten verwijderd worden als dit issue is opgelost.
-
-</details>
+- [Real-Time Web @cmda-minor-web · 2019-2020](#real-time-web-cmda-minor-web--2019-2020)
+  - [👾 Introductie](#-introductie)
+  - [✏️ Concept](#️-concept)
+  - [🕹 Live Demo](#-live-demo)
+  - [👨‍🦯 Usage](#-usage)
+    - [1. Clone repository & install the dependencies](#1-clone-repository--install-the-dependencies)
+    - [2. Request an API key](#2-request-an-api-key)
+    - [3. Start the app](#3-start-the-app)
+    - [4. When in development mode](#4-when-in-development-mode)
+  - [📍 Table of Contents](#-table-of-contents)
+  - [🐒 API](#-api)
+  - [🛠 Tools used](#-tools-used)
+  - [📈 Data Life Cycle Diagram](#-data-life-cycle-diagram)
+  - [⚙️ NPM Scripts](#️-npm-scripts)
+  - [🧦 Socket IO Events](#-socket-io-events)
+  - [❌ Errors](#-errors)
+    - [API can’t find a city](#api-cant-find-a-city)
+    - [Other](#other)
+  - [✨ Whishlist](#-whishlist)
+  - [🙌 Credits](#-credits)
+    - [Dataset Used](#dataset-used)
+  - [📚 Sources](#-sources)
+  - [✅ To do list](#-to-do-list)
 
 ## 🐒 API
 
